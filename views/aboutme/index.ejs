@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../layout/head') %>
+  <head>
+    <%- include('../layout/head') %>
+
+    <link rel="stylesheet" href="stylesheets/skills.css">
+  </head>
   <body>
     <%- include('../layout/header') %>
 
     <%- include('../components/content-block') %>
     
-    <%- include('../components/services') %>
+    <%- include('services') %>
+
+    <%- include('skills') %>
 
     <%- include('../components/contact') %>
 
     <%- include('../layout/footer') %> 
     
     <%- include('../layout/foot') %>
+
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/jquery.easypiechart.js"></script>
+
+    <script src="javascripts/skills.js"></script>
 
   </body>
 </html>

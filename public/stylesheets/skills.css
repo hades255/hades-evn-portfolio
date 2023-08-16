@@ -1,0 +1,114 @@
+.section-padding {
+  padding: 120px 0 100px;
+}
+.section-title {
+  margin-bottom: 80px;
+  text-align: center;
+  font-size: 50px;
+  line-height: 50px;
+  color: #2c3e50;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  background: url(../img/section-divider.png) no-repeat 0 0;
+  height: 15px;
+  width: 113px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  margin: 0 auto;
+}
+.skills-section {
+  background-color: #1a1e23;
+  color: #fff;
+}
+.skills-section .section-title {
+  color: #fff;
+  margin-bottom: 110px;
+}
+.skills-section .section-title h2 {
+  color: #fff;
+}
+.skill-title {
+  width: 25%;
+  float: left;
+}
+.skill-title h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: -6px;
+  text-transform: capitalize;
+}
+.skill-progress {
+  position: relative;
+}
+.progress {
+  height: 10px;
+  margin-bottom: 40px;
+  background-color: #3a4149;
+  border-radius: 3px;
+  box-shadow: none;
+  width: 75%;
+}
+.progress-bar {
+  background-color: #68c3a3;
+}
+.progress-bar span {
+  position: absolute;
+  top: -20px;
+  right: 15px;
+}
+.progress .progress-bar.six-sec-ease-in-out {
+  -webkit-transition: width 2s ease-in-out;
+  -moz-transition: width 2s ease-in-out;
+  -o-transition: width 2s ease-in-out;
+  transition: width 2s ease-in-out;
+}
+.skill-chart h3 {
+  margin-top: 20px;
+}
+.our-progress {
+  margin: 10px 0 30px;
+}
+.progress-percent {
+  margin-left: auto;
+  margin-right: auto;
+}
+.our-progress h3 {
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.chart {
+  position: relative;
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+  margin: 40px auto;
+  text-align: center;
+}
+.chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.percent {
+  display: inline-block;
+  margin: auto;
+  line-height: 140px;
+  z-index: 2;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+.percent:after {
+  content: "%";
+}
+.chart-text span {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: capitalize;
+  display: block;
+  margin-top: 20px;
+}
