@@ -6,4 +6,8 @@ const aboutme = (req, res, next) => {
   res.render("aboutme/index");
 };
 
-module.exports = { home, aboutme };
+const portfolio = (req, res, next) => {
+  res.render("portfolio/index");
+};
+
+module.exports = { home, aboutme, portfolio };
