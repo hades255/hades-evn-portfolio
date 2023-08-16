@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <%- include('./layout/head') %>
+  <%- include('../layout/head') %>
   <body>
-    <%- include('./layout/header') %>
+    <%- include('../layout/header') %>
 
-    <%- include('./home/lastwork') %>
+    <%- include('lastwork') %>
 
-    <%- include('./home/aboutme') %>
+    <%- include('../components/content-block') %>
 
-    <%- include('./home/testimonials') %>
+    <%- include('testimonials') %>
 
-    <%- include('./home/contact') %>
+    <%- include('../components/contact') %>
 
-    <%- include('./layout/footer') %> 
+    <%- include('../layout/footer') %> 
     
-    <%- include('./layout/foot') %>
+    <%- include('../layout/foot') %>
 
     <script>
       $(document).ready(function () {

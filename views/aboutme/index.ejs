@@ -4,40 +4,15 @@
   <body>
     <%- include('../layout/header') %>
 
-    <%- include('../home/lastwork') %>
+    <%- include('../components/content-block') %>
+    
+    <%- include('../components/services') %>
 
-    <%- include('../home/aboutme') %>
-
-    <%- include('../home/testimonials') %>
-
-    <%- include('../home/contact') %>
+    <%- include('../components/contact') %>
 
     <%- include('../layout/footer') %> 
     
     <%- include('../layout/foot') %>
 
-    <script>
-      $(document).ready(function () {
-        $(".owl-carousel").owlCarousel({
-          loop: true,
-          margin: 10,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-            },
-            600: {
-              items: 1,
-            },
-            1000: {
-              items: 1,
-            },
-          },
-        });
-      });
-    </script>
   </body>
 </html>
