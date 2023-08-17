@@ -5,7 +5,7 @@ var constants = fs.constants;
 const accessDB = (path) =>
   new Promise((res, rej) =>
     access(path, constants.R_OK | constants.W_OK, (err) =>
-      err ? rej(err) : res()
+      err ? rej(err) : res(true)
     )
   );
 

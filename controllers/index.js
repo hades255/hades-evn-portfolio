@@ -1,13 +1,23 @@
+const { getRepositories, lineOfCode } = require("../helpers/db");
+
 const home = async (req, res, next) => {
   try {
-    res.render("home/index", { title: "Express" });
+    const repos = (await getRepositories()).length;
+    const code = await lineOfCode(true);
+    res.render("home/index", { title: "Express", repos, code });
   } catch (error) {
-    res.render("home/index", { msg: "Express", error });
+    res.render("error", { message: "Express", error });
   }
 };
 
 const aboutme = async (req, res, next) => {
-  res.render("aboutme/index");
+  try {
+    const repos = (await getRepositories()).length;
+    const code = await lineOfCode(true);
+    res.render("aboutme/index", { title: "Express", repos, code });
+  } catch (error) {
+    res.render("error", { message: "Express", error });
+  }
 };
 
 const portfolio = async (req, res, next) => {
