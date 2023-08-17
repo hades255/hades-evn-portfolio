@@ -1,0 +1,303 @@
+[
+    {
+        "title": "BC Game",
+        "github": "https://github.com/hades255/hades-laravel-gambel-bcGAME",
+        "img": "",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 50.8
+            },
+            {
+                "name": "Blade",
+                "rate": 47.4
+            },
+            {
+                "name": "Hack",
+                "rate": 1.1
+            },
+            {
+                "name": "HTML",
+                "rate": "0.7"
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 329100,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "Laravel",
+            "BCGame",
+            "shop"
+        ]
+    },
+    {
+        "title": "Laravel Admin Panel",
+        "github": "https://github.com/hades255/hades-laravel-QuickAdminPanel",
+        "img": "",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 9.5
+            },
+            {
+                "name": "Blade",
+                "rate": 10.6
+            },
+            {
+                "name": "CSS",
+                "rate": 52
+            },
+            {
+                "name": "JS",
+                "rate": 27.8
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 212600,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "Laravel",
+            "TailwindCSS",
+            "Admin Panel"
+        ]
+    },
+    {
+        "title": "Kissed By Tulips",
+        "github": "https://github.com/hades255/hades-laravel-kissedByTulips",
+        "img": "",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 20
+            },
+            {
+                "name": "Blade",
+                "rate": 75.3
+            },
+            {
+                "name": "Less",
+                "rate": 3.6
+            },
+            {
+                "name": "HTML",
+                "rate": 1.1
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 1100000,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "Laravel",
+            "EShop"
+        ]
+    },
+    {
+        "title": "Statistics",
+        "github": "https://github.com/hades255/Geetha-laravel-php-print",
+        "img": "",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 54.4
+            },
+            {
+                "name": "Blade",
+                "rate": 45.6
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 311300,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "Laravel",
+            "Statistics"
+        ]
+    },
+    {
+        "title": "Online Shop",
+        "github": "https://github.com/hades255/hades-Ecommerce-CI3.1.13-Bootstrap",
+        "img": "",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 44.4
+            },
+            {
+                "name": "JS",
+                "rate": 43.6
+            },
+            {
+                "name": "CSS",
+                "rate": 6.9
+            },
+            {
+                "name": "HTML",
+                "rate": 5.1
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 193000,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "CI",
+            "Ecommerce",
+            "Bootsrap"
+        ]
+    },
+    {
+        "title": "Online Shop",
+        "github": "https://github.com/hades255/hades-Ecommerce-CI3.1.13-Bootstrap",
+        "img": "",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 74.8
+            },
+            {
+                "name": "JS",
+                "rate": 13.2
+            },
+            {
+                "name": "CSS",
+                "rate": 3.7
+            },
+            {
+                "name": "HTML",
+                "rate": 7.3
+            },
+            {
+                "name": "SCSS",
+                "rate": 0.8
+            },
+            {
+                "name": "Action Script",
+                "rate": 0.1
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 1400000,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "CI",
+            "Ecommerce",
+            "Transport Service"
+        ]
+    },
+    {
+        "title": "EShop",
+        "github": "https://github.com/hades255/hades-mern-eshop",
+        "img": "",
+        "languages": [
+            {
+                "name": "JS",
+                "rate": 93.4
+            },
+            {
+                "name": "TS",
+                "rate": 6.5
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 131700,
+        "tag": [
+            "Node",
+            "React",
+            "MongoDB",
+            "Mern",
+            "TS",
+            "Ecommerce",
+            "shop"
+        ]
+    },
+    {
+        "title": "Visualizer",
+        "github": "https://github.com/hades255/skyNet-visualizer-next-react-node-js",
+        "img": "",
+        "languages": [
+            {
+                "TS": 87.6,
+                "HTML": 6,
+                "CSS": 5.9
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 54800,
+        "tag": [
+            "Node",
+            "React",
+            "MongoDB",
+            "Next",
+            "TS",
+            "Social"
+        ]
+    },
+    {
+        "title": "MERN CRUD",
+        "github": "https://github.com/hades255/hades-mern-crud",
+        "img": "",
+        "languages": [
+            {
+                "name": "JS",
+                "rate": 90.3
+            },
+            {
+                "name": "HTML",
+                "rate": 6.1
+            },
+            {
+                "name": "CSS",
+                "rate": 3.6
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 3700,
+        "tag": [
+            "Node",
+            "React",
+            "MongoDB",
+            "Mern",
+            "Todo"
+        ]
+    },
+    {
+        "title": "Nuxt CRUD",
+        "github": "https://github.com/hades255/hades-nuxt-vue3",
+        "img": "",
+        "languages": [
+            {
+                "name": "Vue",
+                "rate": 77.1
+            },
+            {
+                "name": "TS",
+                "rate": 22.9
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 12100,
+        "tag": [
+            "Node",
+            "MongoDB",
+            "Nuxt",
+            "Vue",
+            "TS",
+            "Todo"
+        ]
+    }
+]

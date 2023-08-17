@@ -1,12 +1,16 @@
-const home = (req, res, next) => {
-  res.render("home/index", { title: "Express" });
+const home = async (req, res, next) => {
+  try {
+    res.render("home/index", { title: "Express" });
+  } catch (error) {
+    res.render("home/index", { msg: "Express", error });
+  }
 };
 
-const aboutme = (req, res, next) => {
+const aboutme = async (req, res, next) => {
   res.render("aboutme/index");
 };
 
-const portfolio = (req, res, next) => {
+const portfolio = async (req, res, next) => {
   res.render("portfolio/index");
 };
 
