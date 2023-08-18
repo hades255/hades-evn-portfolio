@@ -21,7 +21,12 @@ const aboutme = async (req, res, next) => {
 };
 
 const portfolio = async (req, res, next) => {
-  res.render("portfolio/index");
+  try {
+    const repos = await getRepositories();
+    res.render("portfolio/index", { title: "Express", repos });
+  } catch (error) {
+    res.render("error", { message: "Express", error });
+  }
 };
 
 module.exports = { home, aboutme, portfolio };

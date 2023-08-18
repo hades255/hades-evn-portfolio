@@ -2,7 +2,7 @@
     {
         "title": "BC Game",
         "github": "https://github.com/hades255/hades-laravel-gambel-bcGAME",
-        "img": "",
+        "img": "bcgame.png",
         "languages": [
             {
                 "name": "PHP",
@@ -28,14 +28,13 @@
             "PHP",
             "MySQL",
             "Laravel",
-            "BCGame",
-            "shop"
+            "BCGame"
         ]
     },
     {
         "title": "Laravel Admin Panel",
         "github": "https://github.com/hades255/hades-laravel-QuickAdminPanel",
-        "img": "",
+        "img": "QuickAdminPanel.png",
         "languages": [
             {
                 "name": "PHP",
@@ -68,7 +67,7 @@
     {
         "title": "Kissed By Tulips",
         "github": "https://github.com/hades255/hades-laravel-kissedByTulips",
-        "img": "",
+        "img": "kissedByTulips.png",
         "languages": [
             {
                 "name": "PHP",
@@ -94,13 +93,13 @@
             "PHP",
             "MySQL",
             "Laravel",
-            "EShop"
+            "Ecommerce"
         ]
     },
     {
         "title": "Statistics",
         "github": "https://github.com/hades255/Geetha-laravel-php-print",
-        "img": "",
+        "img": "default.png",
         "languages": [
             {
                 "name": "PHP",
@@ -124,7 +123,7 @@
     {
         "title": "Online Shop",
         "github": "https://github.com/hades255/hades-Ecommerce-CI3.1.13-Bootstrap",
-        "img": "",
+        "img": "CI-Ecommerce.png",
         "languages": [
             {
                 "name": "PHP",
@@ -155,9 +154,9 @@
         ]
     },
     {
-        "title": "Online Shop",
-        "github": "https://github.com/hades255/hades-Ecommerce-CI3.1.13-Bootstrap",
-        "img": "",
+        "title": "Transport Company",
+        "github": "https://github.com/hades255/skyNet-quotations-CI-PHP",
+        "img": "lorry.png",
         "languages": [
             {
                 "name": "PHP",
@@ -180,7 +179,7 @@
                 "rate": 0.8
             },
             {
-                "name": "Action Script",
+                "name": "ActionScript",
                 "rate": 0.1
             }
         ],
@@ -198,7 +197,7 @@
     {
         "title": "EShop",
         "github": "https://github.com/hades255/hades-mern-eshop",
-        "img": "",
+        "img": "eshop.png",
         "languages": [
             {
                 "name": "JS",
@@ -218,19 +217,25 @@
             "MongoDB",
             "Mern",
             "TS",
-            "Ecommerce",
-            "shop"
+            "Ecommerce"
         ]
     },
     {
         "title": "Visualizer",
         "github": "https://github.com/hades255/skyNet-visualizer-next-react-node-js",
-        "img": "",
+        "img": "visualizer.png",
         "languages": [
             {
-                "TS": 87.6,
-                "HTML": 6,
-                "CSS": 5.9
+                "name": "TS",
+                "rate": 87.6
+            },
+            {
+                "name": "HTML",
+                "rate": 6
+            },
+            {
+                "name": "CSS",
+                "rate": 5.9
             }
         ],
         "createdAt": "2023-08-17",
@@ -248,7 +253,7 @@
     {
         "title": "MERN CRUD",
         "github": "https://github.com/hades255/hades-mern-crud",
-        "img": "",
+        "img": "default.png",
         "languages": [
             {
                 "name": "JS",
@@ -277,7 +282,7 @@
     {
         "title": "Nuxt CRUD",
         "github": "https://github.com/hades255/hades-nuxt-vue3",
-        "img": "",
+        "img": "default.png",
         "languages": [
             {
                 "name": "Vue",

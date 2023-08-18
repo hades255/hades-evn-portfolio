@@ -4,7 +4,6 @@
 .portfolio-item {
   padding-right: 5px;
   padding-left: 5px;
-  /* min-height: 235px; */
 }
 .portfolio-bg {
   background: #fff;
@@ -64,7 +63,7 @@
   width: 90px;
   height: 40px;
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   margin-top: -20px;
   margin-left: -45px;
@@ -112,11 +111,8 @@
   opacity: 0;
 }
 .portfolio-info {
-  position: absolute;
-  bottom: -100%;
   left: 0;
-  background-color: #68c3a3;
-  color: #fff;
+  color: #aaa;
   height: 45px;
   width: 100%;
   text-align: center;
@@ -131,7 +127,8 @@
   transform: translate(0, 0);
 }
 .portfolio:hover .portfolio-info {
-  bottom: 0;
+  color: #fff;
+  background-color: #68c3a3;
 }
 .portfolio-info h3 {
   font-size: 14px;
@@ -139,7 +136,55 @@
   font-weight: 700;
   margin: 0;
 }
-
-
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
+.portfolio-detail {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+}
+.portfolio-item:hover .portfolio-detail {
+  bottom: 45px;
+}
+.language-badge {
+  padding: 5px;
+  position: relative;
+  top: -5px;
+  font-size: 0px;
+  border-radius: 50rem;
+  background-color: red;
+  margin-right: 3px;
+}
+.EJS {
+  background-color: #a91e50;
+}
+.CSS {
+  background-color: #563d7c;
+}
+.JS {
+  background-color: #f1e05a;
+}
+.PHP {
+  background-color: #4f5d95;
+}
+.Blade {
+  background-color: #f7523f;
+}
+.Hack {
+  background-color: #878787;
+}
+.HTML {
+  background-color: #f7523f;
+}
+.Less {
+  background-color: #1d365d;
+}
+.SCSS {
+  background-color: #c6538c;
+}
+.ActionScript {
+  background-color: #882b0f;
+}
+.TS {
+  background-color: #3178c6;
+}

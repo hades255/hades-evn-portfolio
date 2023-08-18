@@ -3,213 +3,52 @@
     <h2 class="section-title wow fadeInUp">Works</h2>
     <ul class="list-inline" id="filter">
       <li><a class="active" data-group="all">All</a></li>
+      <li><a data-group="PHP">PHP</a></li>
+      <li><a data-group="Node">Node</a></li>
+      <li><a data-group="Ecommerce">Ecommerce</a></li>
       <li><a data-group="design">Design</a></li>
-      <li><a data-group="web">Web</a></li>
-      <li><a data-group="interface">Interface</a></li>
-      <li><a data-group="identety">Identity</a></li>
     </ul>
     <div class="row">
       <div id="grid">
+        <% repos.forEach((repo, index)=>{ %>
         <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "identety", "interface"]'
+          class="portfolio-item grid-item col-lg-3 col-md-3 col-sm-6 shadow rounded"
+          data-groups="<%= JSON.stringify(['all', ...repo.tag]) %>"
         >
           <div class="portfolio-bg">
             <div class="portfolio">
               <div class="tt-overlay"></div>
               <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-1.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
+                <a class="image-link" href="img/repos/<%= repo.img %>">
+                  <i class="fa fa-search-plus"></i>
+                </a>
+                <a href="<%= repo.github %>" target="_blank">
+                  <i class="fa fa-link"></i>
+                </a>
               </div>
-              <img
-                src="img/works/portfolio-1.jpg"
-                alt="image"
-              />
+                <img src="img/repos/<%= repo.img %>" alt="image" width="100%" />
+                <div class="portfolio-detail">
+                  <div class="btn-group btn-group-sm">
+                    <button class="btn btn-secondary">lines</button>
+                    <button class="btn btn-success"><%= repo.code %></button>
+                  </div>
+                  <div class="d-flex flex-wrap">
+                    <% repo.languages.forEach((lan)=>{ %>
+                    <div class="ms-2">
+                      <span class="language-badge <%= lan.name %>"> </span>
+                      <span class="text-white"><%= lan.name %></span>
+                      <span class="text-white-50"><%= lan.rate %>%</span>
+                    </div>
+                    <% }) %>
+                  </div>
+                </div>
               <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
+                <h3><%= repo.title %></h3>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "identety", "web"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-2.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-2.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "interface"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-3.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-3.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "identety", "design"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-4.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-4.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "identety", "design"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-5.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-5.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "identety", "design"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-6.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-6.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "identety", "web"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-7.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-7.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="portfolio-item grid-item"
-          data-groups='["all", "design"]'
-        >
-          <div class="portfolio-bg">
-            <div class="portfolio">
-              <div class="tt-overlay"></div>
-              <div class="links">
-                <a
-                  class="image-link"
-                  href="img/works/portfolio-8.jpg"
-                  ><i class="fa fa-search-plus"></i
-                ></a>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-              <img
-                src="img/works/portfolio-8.jpg"
-                alt="image"
-              />
-              <div class="portfolio-info">
-                <h3>Portfolio Title</h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
   </div>
