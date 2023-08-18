@@ -1,6 +1,10 @@
 $(document).ready(function () {
-  (function () {
-    var $grid = $("#grid");
+  var $grid = $("#grid");
+  $grid.imagesLoaded(function () {
+    $grid.masonry({
+      itemSelector: ".grid-item",
+      columnWidth: 200,
+    });
     $grid.shuffle({ itemSelector: ".portfolio-item" });
     $("#filter a").click(function (e) {
       e.preventDefault();
@@ -9,7 +13,8 @@ $(document).ready(function () {
       var groupName = $(this).attr("data-group");
       $grid.shuffle("shuffle", groupName);
     });
-  })();
+  });
+
   (function () {
     $(".image-link").magnificPopup({
       gallery: { enabled: true },
