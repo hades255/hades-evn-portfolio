@@ -1,21 +1,21 @@
-<section id="works" class="works-section section-padding">
+<section id="works" class="works-section">
   <div class="container">
     <h2 class="section-title wow fadeInUp">Works</h2>
-    <ul class="list-inline" id="filter">
-      <li><a class="active" data-group="all">All</a></li>
-      <li><a data-group="PHP">PHP</a></li>
-      <li><a data-group="Node">Node</a></li>
-      <li><a data-group="Ecommerce">Ecommerce</a></li>
-      <li><a data-group="design">Design</a></li>
+    <ul class="list-inline d-flex justify-content-center" id="filter">
+      <li class="m-1"><a class="active text-decoration-none" data-group="all">All</a></li>
+      <li class="m-1"><a class="text-decoration-none" data-group="PHP">PHP</a></li>
+      <li class="m-1"><a class="text-decoration-none" data-group="Node">Node</a></li>
+      <li class="m-1"><a class="text-decoration-none" data-group="Ecommerce">Ecommerce</a></li>
+      <li class="m-1"><a class="text-decoration-none" data-group="design">Design</a></li>
     </ul>
     <div class="row">
       <div id="grid">
         <% repos.forEach((repo, index)=>{ %>
         <div
-          class="portfolio-item grid-item col-lg-3 col-md-3 col-sm-6 shadow rounded"
+          class="portfolio-item grid-item col-lg-3 col-md-3 col-sm-6"
           data-groups="<%= JSON.stringify(['all', ...repo.tag]) %>"
         >
-          <div class="portfolio-bg">
+          <div class="portfolio-bg shadow rounded">
             <div class="portfolio">
               <div class="tt-overlay"></div>
               <div class="links">
@@ -26,25 +26,25 @@
                   <i class="fa fa-link"></i>
                 </a>
               </div>
-                <img src="img/repos/<%= repo.img %>" alt="image" width="100%" />
-                <div class="portfolio-detail">
-                  <div class="btn-group btn-group-sm">
-                    <button class="btn btn-secondary">lines</button>
-                    <button class="btn btn-success"><%= repo.code %></button>
-                  </div>
-                  <div class="d-flex flex-wrap">
-                    <% repo.languages.forEach((lan)=>{ %>
-                    <div class="ms-2">
-                      <span class="language-badge <%= lan.name %>"> </span>
-                      <span class="text-white"><%= lan.name %></span>
-                      <span class="text-white-50"><%= lan.rate %>%</span>
-                    </div>
-                    <% }) %>
-                  </div>
-                </div>
-              <div class="portfolio-info">
-                <h3><%= repo.title %></h3>
+              <img src="img/repos/<%= repo.img %>" alt="image" width="100%" />
+            </div>
+            <div class="portfolio-detail">
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-secondary">lines</button>
+                <button class="btn btn-success"><%= repo.code %></button>
               </div>
+              <div class="d-flex flex-wrap">
+                <% repo.languages.forEach((lan)=>{ %>
+                <div class="ms-2 mb-0 mt-0">
+                  <span class="language-badge <%= lan.name %>"> </span>
+                  <span class="text-white"><%= lan.name %></span>
+                  <span class="text-white-50"><%= lan.rate %>%</span>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3><%= repo.title %></h3>
             </div>
           </div>
         </div>

@@ -1,16 +1,15 @@
 .works-section {
   background-color: #f7f7f7;
+  min-height: 800px;
 }
 .portfolio-item {
-  padding-right: 5px;
-  padding-left: 5px;
+  padding: 5px;
+  padding-bottom: 20px;
 }
 .portfolio-bg {
+  position: relative;
   background: #fff;
   padding: 5px;
-  margin-bottom: 20px;
-  border: 1px solid #eee;
-  border-bottom: 3px double #eee;
 }
 .portfolio {
   position: relative;
@@ -50,6 +49,7 @@
   margin-left: -8px;
 }
 .portfolio-info,
+.portfolio-detail,
 .links,
 .links a i,
 .links a i::after,
@@ -117,7 +117,7 @@
   width: 100%;
   text-align: center;
 }
-.portfolio:hover .tt-overlay,
+.portfolio-bg:hover .tt-overlay,
 .portfolio:hover .links {
   opacity: 1;
   -webkit-transform: translate(0, 0);
@@ -126,9 +126,9 @@
   -o-transform: translate(0, 0);
   transform: translate(0, 0);
 }
-.portfolio:hover .portfolio-info {
+.portfolio-bg:hover .portfolio-info {
   color: #fff;
-  background-color: #68c3a3;
+  background-color: rgba(26, 30, 31, 0.85);
 }
 .portfolio-info h3 {
   font-size: 14px;
@@ -138,13 +138,15 @@
 }
 .portfolio-detail {
   position: absolute;
-  bottom: -100%;
+  bottom: 0;
   width: 100%;
   font-size: 12px;
   text-align: center;
+  opacity: 0;
 }
-.portfolio-item:hover .portfolio-detail {
+.portfolio-bg:hover .portfolio-detail {
   bottom: 45px;
+  opacity: 1;
 }
 .language-badge {
   padding: 5px;

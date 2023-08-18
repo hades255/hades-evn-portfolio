@@ -713,8 +713,8 @@ input[type="submit"]:hover {
 
 .rotated-icon i {
   position: absolute;
-  top: 1.3rem;
-  left: 1.5rem;
+  top: 1rem;
+  left: 1rem;
   font-size: 22px;
 }
 
