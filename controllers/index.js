@@ -1,4 +1,4 @@
-const { getRepositories, lineOfCode } = require("../helpers/db");
+const { getRepositories, lineOfCode, numWithSuf } = require("../helpers/db");
 
 const home = async (req, res, next) => {
   try {
@@ -22,8 +22,33 @@ const aboutme = async (req, res, next) => {
 
 const portfolio = async (req, res, next) => {
   try {
-    const repos = await getRepositories();
-    res.render("portfolio/index", { title: "Express", repos });
+    let repos = await getRepositories();
+    const code = await lineOfCode();
+    let languages = {};
+    repos.forEach((repo) => {
+      repo.languages.forEach((lan) => {
+        languages[lan.name] = languages[lan.name]
+          ? languages[lan.name] + (lan.rate * repo.code) / 100
+          : (lan.rate * repo.code) / 100;
+      });
+    });
+    let languagesA = [];
+    for (let [key, value] of Object.entries(languages)) {
+      languagesA.push({
+        label: key,
+        y: (value / code) * 100,
+        x: numWithSuf(value).num,
+        z: numWithSuf(value).suf,
+      });
+    }
+    repos = repos.map((repo) => ({ ...repo, code: numWithSuf(repo.code) }));
+
+    res.render("portfolio/index", {
+      title: "Express",
+      repos,
+      languages: languagesA,
+      code: numWithSuf(code),
+    });
   } catch (error) {
     res.render("error", { message: "Express", error });
   }

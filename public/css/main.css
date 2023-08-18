@@ -537,6 +537,10 @@ ul.numbersList span {
   font-weight: 400;
   font-size: 55px;
 }
+.block-heading {
+  font-family: "Milonga", cursive;
+  font-weight: 400;
+}
 
 .contact-info {
   padding: 16px 62px;

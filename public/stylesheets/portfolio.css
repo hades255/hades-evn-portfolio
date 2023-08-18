@@ -25,7 +25,7 @@
   display: block;
   text-transform: uppercase;
   padding: 0 15px;
-  border-radius: 4px;
+  border-radius: 30rem;
   transition: inherit;
 }
 #filter li a.active,
@@ -53,6 +53,7 @@
 .links,
 .links a i,
 .links a i::after,
+#filter li a,
 .tt-overlay {
   -webkit-transition: all 400ms;
   -moz-transition: all 400ms;
@@ -189,4 +190,7 @@
 }
 .TS {
   background-color: #3178c6;
+}
+.canvasjs-chart-credit{
+  display: none;
 }

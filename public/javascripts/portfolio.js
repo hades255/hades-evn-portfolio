@@ -23,4 +23,6 @@ $(document).ready(function () {
       type: "image",
     });
   })();
+
+  $("#chartContainer").CanvasJSChart(options);
 });

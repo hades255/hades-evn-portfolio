@@ -1,6 +1,6 @@
 <section id="works" class="works-section">
-  <div class="container">
-    <h2 class="section-title wow fadeInUp">Works</h2>
+  <div class="container pt-5">
+    <h1 class="section-title wow fadeInUp block-heading text-black">Works</h1>
     <ul class="list-inline d-flex justify-content-center" id="filter">
       <li class="m-1"><a class="active text-decoration-none" data-group="all">All</a></li>
       <li class="m-1"><a class="text-decoration-none" data-group="PHP">PHP</a></li>
@@ -30,8 +30,8 @@
             </div>
             <div class="portfolio-detail">
               <div class="btn-group btn-group-sm">
-                <button class="btn btn-secondary">lines</button>
-                <button class="btn btn-success"><%= repo.code %></button>
+                <span class="btn btn-secondary p-0 ps-2 pe-1">lines</span>
+                <span class="btn btn-success p-0 ps-1 pe-2"><%= repo.code.num %><%= repo.code.suf %></span>
               </div>
               <div class="d-flex flex-wrap">
                 <% repo.languages.forEach((lan)=>{ %>

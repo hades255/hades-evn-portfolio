@@ -4,25 +4,48 @@
     <%- include('../layout/head') %>
 
     <link href="css/magnific-popup.css" rel="stylesheet" />
-    <link rel="stylesheet" href="stylesheets/portfolio.css">
+    <link rel="stylesheet" href="stylesheets/portfolio.css" />
   </head>
   <body>
     <%- include('../layout/header') %>
 
     <div id="go-down"></div>
 
-    <%- include('works') %>
-    
-    <%- include('../components/contact') %>
-
-    <%- include('../layout/footer') %> 
-    
-    <%- include('../layout/foot') %>
+    <%- include('works') %> <%- include('languages') %> <%-
+    include('../components/contact') %> <%- include('../layout/footer') %> <%-
+    include('../layout/foot') %>
 
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/jquery_shuffle.min.js"></script>
+    <script src="js/jquery.canvasjs.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="javascripts/portfolio.js"></script>
-</body>
+
+    <script>
+      const options = {
+        title: {
+          text: "Language Usages",
+        },
+        subtitles: [
+          {
+            text: "On my PROJECTs - <%= code.num %><%= code.suf %> lines",
+          },
+        ],
+        animationEnabled: true,
+        data: [
+          {
+            type: "pie",
+            startAngle: 40,
+            toolTipContent: "<b>{label}</b>:{x}{z} <sub>lines</sub> {y}%",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabelFontSize: 16,
+            indexLabel: "{label} - {y}%",
+            dataPoints: JSON.parse($("#languages-detail-values").text()),
+          },
+        ],
+      };
+    </script>
+  </body>
 </html>

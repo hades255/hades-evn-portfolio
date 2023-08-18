@@ -10,26 +10,27 @@ const getRepositories = async () => {
   }
 };
 
+const numWithSuf = (num) => {
+  let suf = 0;
+  const units = "KMGT";
+  while (num / 1000 >= 1) {
+    suf++;
+    num = (num - (num % 1000)) / 1000;
+  }
+  return {
+    num,
+    suf: suf ? units[suf - 1] : "",
+  };
+};
+
 const lineOfCode = async (style = false) => {
   try {
     const repos = await getRepositories();
     let code = repos.reduce((a, b) => a + b.code, 0);
-    if (style) {
-      let suf = 0;
-      const units = "KMGT";
-      while (code / 1000 >= 1) {
-        suf++;
-        code = (code - (code % 1000)) / 1000;
-      }
-      return {
-        code,
-        suf: suf ? units[suf - 1] : "",
-      };
-    }
-    return code;
+    return style ? numWithSuf(code) : code;
   } catch (error) {
     return false;
   }
 };
 
-module.exports = { getRepositories, lineOfCode };
+module.exports = { getRepositories, lineOfCode, numWithSuf };
