@@ -38,7 +38,7 @@ $(function () {
 
   // Smooth Scrolling and remove Hash tag from link
 
-  $("a[href*=#]:not([href=#])").click(function () {
+  $("a[href*='#']:not([href='#'])").click(function () {
     if (
       location.pathname.replace(/^\//, "") ==
         this.pathname.replace(/^\//, "") &&

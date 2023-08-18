@@ -1,37 +1,5 @@
 [
     {
-        "title": "BC Game",
-        "github": "https://github.com/hades255/hades-laravel-gambel-bcGAME",
-        "img": "bcgame.png",
-        "languages": [
-            {
-                "name": "PHP",
-                "rate": 50.8
-            },
-            {
-                "name": "Blade",
-                "rate": 47.4
-            },
-            {
-                "name": "Hack",
-                "rate": 1.1
-            },
-            {
-                "name": "HTML",
-                "rate": "0.7"
-            }
-        ],
-        "createdAt": "2023-08-17",
-        "updatedAt": "2023-08-17",
-        "code": 329100,
-        "tag": [
-            "PHP",
-            "MySQL",
-            "Laravel",
-            "BCGame"
-        ]
-    },
-    {
         "title": "Laravel Admin Panel",
         "github": "https://github.com/hades255/hades-laravel-QuickAdminPanel",
         "img": "QuickAdminPanel.png",
@@ -94,6 +62,38 @@
             "MySQL",
             "Laravel",
             "Ecommerce"
+        ]
+    },
+    {
+        "title": "BC Game",
+        "github": "https://github.com/hades255/hades-laravel-gambel-bcGAME",
+        "img": "bcgame.png",
+        "languages": [
+            {
+                "name": "PHP",
+                "rate": 50.8
+            },
+            {
+                "name": "Blade",
+                "rate": 47.4
+            },
+            {
+                "name": "Hack",
+                "rate": 1.1
+            },
+            {
+                "name": "HTML",
+                "rate": "0.7"
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 329100,
+        "tag": [
+            "PHP",
+            "MySQL",
+            "Laravel",
+            "BCGame"
         ]
     },
     {

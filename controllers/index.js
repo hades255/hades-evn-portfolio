@@ -33,7 +33,12 @@ const portfolio = async (req, res, next) => {
       });
     });
     let languagesA = [];
+    let others = 0;
     for (let [key, value] of Object.entries(languages)) {
+      if (value / code < 0.01) {
+        others += value / code;
+        continue;
+      }
       languagesA.push({
         label: key,
         y: (value / code) * 100,
@@ -41,6 +46,13 @@ const portfolio = async (req, res, next) => {
         z: numWithSuf(value).suf,
       });
     }
+    if (others)
+      languagesA.push({
+        label: "Others",
+        y: others * 100,
+        x: numWithSuf(others * code).num,
+        z: numWithSuf(others * code).suf,
+      });
     repos = repos.map((repo) => ({ ...repo, code: numWithSuf(repo.code) }));
 
     res.render("portfolio/index", {
