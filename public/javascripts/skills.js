@@ -1,17 +1,17 @@
 "use strict";
 
-var firstTime2 = true;
+var firstTimeSkillProgress = true;
 $(document).scroll(function (event) {
   var result = $(".skill-progress").isOnScreen();
 
   if (result == true) {
-    if (firstTime2) {
-      firstTime2 = false;
+    if (firstTimeSkillProgress) {
+      firstTimeSkillProgress = false;
 
       $.each($("div.progress-bar"), function () {
         const ele = $(this);
-        let per = 0;
         const rem = Number(ele.attr("aria-valuenow"));
+        let per = rem ? 3 : 0;
         const progress = () => {
           if (per < rem) {
             ele.css("width", per + "%");
@@ -28,6 +28,17 @@ $(document).scroll(function (event) {
         };
         progress();
       });
+    }
+  }
+});
+
+var firstTimeSkillChart = true;
+$(document).scroll(function (event) {
+  var result = $(".skill-chart").isOnScreen();
+
+  if (result == true) {
+    if (firstTimeSkillChart) {
+      firstTimeSkillChart = false;
 
       $(".chart").easyPieChart({
         easing: "easeOut",

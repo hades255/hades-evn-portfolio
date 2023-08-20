@@ -99,7 +99,7 @@
     {
         "title": "Statistics",
         "github": "https://github.com/hades255/Geetha-laravel-php-print",
-        "img": "default.png",
+        "img": "laravel.png",
         "languages": [
             {
                 "name": "PHP",
@@ -253,7 +253,7 @@
     {
         "title": "MERN CRUD",
         "github": "https://github.com/hades255/hades-mern-crud",
-        "img": "default.png",
+        "img": "react.png",
         "languages": [
             {
                 "name": "JS",
@@ -282,7 +282,7 @@
     {
         "title": "Nuxt CRUD",
         "github": "https://github.com/hades255/hades-nuxt-vue3",
-        "img": "default.png",
+        "img": "nuxt.png",
         "languages": [
             {
                 "name": "Vue",
