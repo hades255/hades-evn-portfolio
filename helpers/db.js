@@ -10,6 +10,16 @@ const getRepositories = async () => {
   }
 };
 
+const getSkills = async () => {
+  try {
+    await accessDB("./db/skills.json");
+    const data = await readDB("./db/skills.json");
+    return JSON.parse(data);
+  } catch (error) {
+    return false;
+  }
+};
+
 const numWithSuf = (num) => {
   let suf = 0;
   const units = "KMGT";
@@ -23,14 +33,9 @@ const numWithSuf = (num) => {
   };
 };
 
-const lineOfCode = async (style = false) => {
-  try {
-    const repos = await getRepositories();
-    let code = repos.reduce((a, b) => a + b.code, 0);
-    return style ? numWithSuf(code) : code;
-  } catch (error) {
-    return false;
-  }
+const lineOfCode = (repos, style = false) => {
+  let code = repos.reduce((a, b) => a + b.code, 0);
+  return style ? numWithSuf(code) : code;
 };
 
-module.exports = { getRepositories, lineOfCode, numWithSuf };
+module.exports = { getRepositories, lineOfCode, numWithSuf, getSkills };

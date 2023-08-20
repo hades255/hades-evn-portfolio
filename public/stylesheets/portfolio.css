@@ -191,6 +191,15 @@
 .TS {
   background-color: #3178c6;
 }
-.canvasjs-chart-credit{
+.canvasjs-chart-credit {
   display: none;
+}
+
+#more-filters {
+  color: #68c3a3;
+  display: block;
+  text-transform: uppercase;
+  padding: 0 15px;
+  border-radius: 30rem;
+  transition: inherit;
 }

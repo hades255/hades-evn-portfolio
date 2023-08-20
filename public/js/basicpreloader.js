@@ -1,15 +1,14 @@
 $(document).ready(function () {
   var heights = jQuery(window).height();
-  var margTop = heights / 2 - 25;
 
   var h = 50; //height and width of the loading circles
   var w = 50;
 
   $("#loader").css("width", "100%");
   $("#loader").css("height", heights);
-  $("#loader").css("background-color", "black");
+//   $("#loader").css("background-color", "black");
 
-  $("body").css("overflow", "hidden");
+  //   $("body").css("overflow", "hidden");
 
   $("#back").css("width", "100%");
   $("#back").css("height", heights);
@@ -81,14 +80,14 @@ $(document).ready(function () {
   }, 4500);
 
   $(window).on("load", function () {
-    $("body").css("overflow", "auto");
-    $("#loader").fadeOut("fast", function () {
+    // $("body").css("overflow", "auto");
+    $("#loader").hide(function () {
       $("#loader").remove();
     });
   });
   $(window).resize(function () {
-    /*Resize event, resizes the content according to window size*/ heights =
-      jQuery(window).height();
+    /*Resize event, resizes the content according to window size*/
+    heights = jQuery(window).height();
     $("#back").css("height", heights);
     $("#loader").css("height", heights);
     $("#loader").css("background-color", "black");

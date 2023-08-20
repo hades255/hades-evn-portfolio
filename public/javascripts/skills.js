@@ -9,7 +9,24 @@ $(document).scroll(function (event) {
       firstTime2 = false;
 
       $.each($("div.progress-bar"), function () {
-        $(this).css("width", $(this).attr("aria-valuenow") + "%");
+        const ele = $(this);
+        let per = 0;
+        const rem = Number(ele.attr("aria-valuenow"));
+        const progress = () => {
+          if (per < rem) {
+            ele.css("width", per + "%");
+            per +=
+              10 * per < rem || 10 * (rem - per) < rem
+                ? 1
+                : 10 * per < rem * 2 || 10 * (rem - per) < rem * 2
+                ? 4
+                : 2;
+            setTimeout(() => {
+              progress();
+            }, 1);
+          }
+        };
+        progress();
       });
 
       $(".chart").easyPieChart({

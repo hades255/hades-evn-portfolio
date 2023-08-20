@@ -1,0 +1,22 @@
+{
+    "languages": {
+        "HTML": 99,
+        "CSS": 95,
+        "JS": 95,
+        "PHP": 90,
+        "python": 60,
+        "goLang": 50,
+        "node.js": 90,
+        "React": 95,
+        "Vue": 85,
+        "Laravel": 90
+    },
+    "technics": {
+        "Communication": 87,
+        "Leadership": 91,
+        "Creativity": 68,
+        "Management": 78,
+        "Smarty": 90,
+        "UI/UX Design": 66
+    }
+}

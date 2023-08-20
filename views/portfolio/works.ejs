@@ -2,11 +2,37 @@
   <div class="container pt-5">
     <h1 class="section-title wow fadeInUp block-heading text-black">Works</h1>
     <ul class="list-inline d-flex justify-content-center" id="filter">
-      <li class="m-1"><a class="active text-decoration-none" data-group="all">All</a></li>
-      <li class="m-1"><a class="text-decoration-none" data-group="PHP">PHP</a></li>
-      <li class="m-1"><a class="text-decoration-none" data-group="Node">Node</a></li>
-      <li class="m-1"><a class="text-decoration-none" data-group="Ecommerce">Ecommerce</a></li>
-      <li class="m-1"><a class="text-decoration-none" data-group="design">Design</a></li>
+      <li class="m-1">
+        <a class="active text-decoration-none" data-group="all">All</a>
+      </li>
+      <li class="m-1">
+        <a class="text-decoration-none" data-group="PHP">PHP</a>
+      </li>
+      <li class="m-1">
+        <a class="text-decoration-none" data-group="Node">Node</a>
+      </li>
+      <li class="m-1">
+        <a class="text-decoration-none" data-group="Ecommerce">Ecommerce</a>
+      </li>
+      <li class="m-1">
+        <a class="text-decoration-none" data-group="design">Design</a>
+      </li>
+      <li class="m-1 d-none" id="more-filter">
+        <a class="text-decoration-none">More</a>
+      </li>
+      <div class="ms-1">
+        <select
+          type="text"
+          class="form-control form-control-sm border-0 bg-transparent"
+          id="more-filters"
+        >
+          <option value="">More ...</option>
+          <option value="Laravel">Laravel</option>
+          <option value="CI">CI</option>
+          <option value="React">React</option>
+          <option value="Vue">Vue</option>
+        </select>
+      </div>
     </ul>
     <div class="row">
       <div id="grid">
@@ -31,7 +57,9 @@
             <div class="portfolio-detail">
               <div class="btn-group btn-group-sm">
                 <span class="btn btn-secondary p-0 ps-2 pe-1">lines</span>
-                <span class="btn btn-success p-0 ps-1 pe-2"><%= repo.code.num %><%= repo.code.suf %></span>
+                <span class="btn btn-success p-0 ps-1 pe-2"
+                  ><%= repo.code.num %><%= repo.code.suf %></span
+                >
               </div>
               <div class="d-flex flex-wrap">
                 <% repo.languages.forEach((lan)=>{ %>

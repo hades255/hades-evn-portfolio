@@ -27,11 +27,9 @@ $(document).scroll(function (event) {
   if (result == true) {
     if (firstTimeCount) {
       firstTimeCount = false;
-      $(".count-numbers")
-        .toArray()
-        .forEach((item) => {
-          countUpTo($(item).text(), $(item));
-        });
+      $.each($(".count-numbers"), function(){
+        countUpTo($(this).text(), $(this));
+      })
     }
   }
 });

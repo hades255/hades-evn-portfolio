@@ -1,10 +1,15 @@
-const { getRepositories, lineOfCode, numWithSuf } = require("../helpers/db");
+const {
+  getRepositories,
+  lineOfCode,
+  numWithSuf,
+  getSkills,
+} = require("../helpers/db");
 
 const home = async (req, res, next) => {
   try {
-    const repos = (await getRepositories()).length;
-    const code = await lineOfCode(true);
-    res.render("home/index", { title: "Express", repos, code });
+    const repos = await getRepositories();
+    const code = lineOfCode(repos, true);
+    res.render("home/index", { title: "Express", repos: repos.length, code });
   } catch (error) {
     res.render("error", { message: "Express", error });
   }
@@ -12,9 +17,15 @@ const home = async (req, res, next) => {
 
 const aboutme = async (req, res, next) => {
   try {
-    const repos = (await getRepositories()).length;
-    const code = await lineOfCode(true);
-    res.render("aboutme/index", { title: "Express", repos, code });
+    const repos = await getRepositories();
+    const code = lineOfCode(repos, true);
+    const skills = await getSkills();
+    res.render("aboutme/index", {
+      title: "Express",
+      repos: repos.length,
+      code,
+      skills,
+    });
   } catch (error) {
     res.render("error", { message: "Express", error });
   }
@@ -23,7 +34,7 @@ const aboutme = async (req, res, next) => {
 const portfolio = async (req, res, next) => {
   try {
     let repos = await getRepositories();
-    const code = await lineOfCode();
+    const code = lineOfCode(repos);
     let languages = {};
     repos.forEach((repo) => {
       repo.languages.forEach((lan) => {
