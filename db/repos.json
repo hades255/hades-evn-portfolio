@@ -304,5 +304,55 @@
             "TS",
             "Todo"
         ]
+    },
+    {
+        "title": "MERN Ecommerce",
+        "github": "https://github.com/hades255/hades-mern-ecommerce",
+        "img": "mern-eco.jpg",
+        "languages": [
+            {
+                "name": "JS",
+                "rate": 86.6
+            },
+            {
+                "name": "SCSS",
+                "rate": 13.3
+            },
+            {
+                "name": "HTML",
+                "rate": 0.1
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 55100,
+        "tag": [
+            "Node",
+            "MongoDB",
+            "React",
+            "Ecommerce",
+            "Mern"
+        ]
+    },
+    {
+        "title": "MERN Marketplace",
+        "github": "https://github.com/hades255/hades-nuxt-vue3",
+        "img": "mern-mar.png",
+        "languages": [
+            {
+                "name": "JS",
+                "rate": 100
+            }
+        ],
+        "createdAt": "2023-08-17",
+        "updatedAt": "2023-08-17",
+        "code": 13600,
+        "tag": [
+            "Node",
+            "MongoDB",
+            "React",
+            "Ecommerce",
+            "Mern"
+        ]
     }
 ]
