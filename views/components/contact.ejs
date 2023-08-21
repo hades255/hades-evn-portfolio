@@ -8,12 +8,22 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 wow animated fadeInLeft">
-            <form class="contact-form" action="form.php">
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
+            <form
+              class="contact-form"
+              action=""
+              method="POST"
+              @submit="handleSubmit"
+            >
+              <input type="text" v-model="name" placeholder="Name" required />
+              <input
+                type="email"
+                v-model="email"
+                placeholder="Email"
+                required
+              />
               <textarea
                 rows="5"
-                name="message"
+                v-model="message"
                 placeholder="Say Something..."
                 required
               ></textarea>
@@ -83,3 +93,45 @@
   </div>
   <!-- overlay-3 -->
 </div>
+
+<script type="module">
+  new Vue({
+    el: "#contact",
+    data() {
+      return {
+        name: "Sam",
+        email: "montgasam@gmail.com",
+        message: "OK",
+      };
+    },
+    methods: {
+      handleSubmit(e) {
+        e.preventDefault();
+        fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: this.name,
+            email: this.email,
+            message: this.message,
+          }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "And these were just the basic demos! Scroll down to check further details on how to customize the output.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+            console.log(res);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      },
+    },
+  });
+</script>

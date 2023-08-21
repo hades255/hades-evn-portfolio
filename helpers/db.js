@@ -1,4 +1,24 @@
-const { accessDB, readDB } = require("./fs");
+const { accessDB, readDB, writeDB } = require("./fs");
+
+const getDB = async (path) => {
+  try {
+    await accessDB("./db/" + path + ".json");
+    const data = await readDB("./db/" + path + ".json");
+    return JSON.parse(data);
+  } catch (error) {
+    return false;
+  }
+};
+
+const setDB = async (path, data) => {
+  try {
+    await accessDB("./db/" + path + ".json");
+    await writeDB("./db/" + path + ".json", data);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
 
 const getRepositories = async () => {
   try {
@@ -38,4 +58,11 @@ const lineOfCode = (repos, style = false) => {
   return style ? numWithSuf(code) : code;
 };
 
-module.exports = { getRepositories, lineOfCode, numWithSuf, getSkills };
+module.exports = {
+  getRepositories,
+  lineOfCode,
+  numWithSuf,
+  getSkills,
+  getDB,
+  setDB,
+};
