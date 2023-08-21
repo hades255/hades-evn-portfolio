@@ -49,14 +49,22 @@
                       <div class="sqaure-nebir"></div>
                       <i class="fa fa-mobile"></i>
                     </div>
-                    <p><strong> Cell No:</strong> 1-940-360-3024</p>
+                    <p>
+                      <a href="tel:+19403603024" class="text-white">
+                        <strong> Cell No:</strong> 1-940-360-3024
+                      </a>
+                    </p>
                   </div>
                   <div class="clearfix">
                     <div class="rotated-icon">
                       <div class="sqaure-nebir"></div>
                       <i class="fa fa-envelope-o"></i>
                     </div>
-                    <p><strong> Email:</strong> montgasam@gmail.com</p>
+                    <p>
+                      <a href="mailto:montgasam@gmail.com" class="text-white">
+                        <strong> Email:</strong> montgasam@gmail.com
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -73,11 +81,11 @@
                     ><i class="fa fa-twitter"></i
                   ></a>
                 </li>
-                <li>
+                <!-- <li>
                   <a class="g-plus-icon" href="#"
                     ><i class="fa fa-google-plus"></i
                   ></a>
-                </li>
+                </li> -->
                 <li>
                   <a class="linkedin-icon" href="#"
                     ><i class="fa fa-linkedin"></i
@@ -122,14 +130,18 @@
           .then((res) => {
             $.toast({
               heading: "Success",
-              text: "And these were just the basic demos! Scroll down to check further details on how to customize the output.",
+              text: "Your request is successfuly sended.",
               showHideTransition: "slide",
               icon: "success",
             });
-            console.log(res);
           })
           .catch((error) => {
-            console.error("Error:", error);
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
           });
       },
     },
