@@ -1,12 +1,12 @@
 [
     {
-        "id": "1692619053959alSF3LGhIlQeGSbn",
-        "createdAt": "2023-08-21T11:57:33.959Z",
-        "updatedAt": "2023-08-21T11:57:33.959Z",
+        "id": "1692624855736RDujDXsxZaS2917Q",
+        "createdAt": "2023-08-21T13:34:15.736Z",
+        "updatedAt": "2023-08-21T13:34:15.736Z",
         "name": "Sam Montgamery",
         "email": "montgasam@gmail.com",
         "role": "admin",
-        "salt": "1184380417266",
-        "hashed_password": "c8bffc6249a90afd4ca19ccbd9118e41b8cb1fe4"
+        "salt": "699917702935",
+        "hashed_password": "8941d35934a8027b946627d86624c376f327085f"
     }
 ]

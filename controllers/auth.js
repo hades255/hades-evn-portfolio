@@ -11,13 +11,13 @@ const login = (req, res, next) => {
 const signin = async (req, res, next) => {
   try {
     const user = await User.findOne("email", "montgasam@gmail.com");
-    console.log(user);
     if (!user.authenticate(req.body.password)) {
       return res.status("401").send({
         error: "Password don't match.",
       });
     }
     const token = user.generateAccessToken();
+    console.log(token)
     res.json(token);
   } catch (error) {
     next(error);
