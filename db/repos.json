@@ -1,6 +1,7 @@
 [
     {
         "title": "Laravel Admin Panel",
+        "type": "public",
         "github": "https://github.com/hades255/hades-laravel-QuickAdminPanel",
         "img": "QuickAdminPanel.png",
         "languages": [
@@ -34,6 +35,7 @@
     },
     {
         "title": "Kissed By Tulips",
+        "type": "public",
         "github": "https://github.com/hades255/hades-laravel-kissedByTulips",
         "img": "kissedByTulips.png",
         "languages": [
@@ -66,6 +68,7 @@
     },
     {
         "title": "BC Game",
+        "type": "public",
         "github": "https://github.com/hades255/hades-laravel-gambel-bcGAME",
         "img": "bcgame.png",
         "languages": [
@@ -98,6 +101,7 @@
     },
     {
         "title": "Statistics",
+        "type": "public",
         "github": "https://github.com/hades255/Geetha-laravel-php-print",
         "img": "laravel.png",
         "languages": [
@@ -122,6 +126,7 @@
     },
     {
         "title": "Online Shop",
+        "type": "public",
         "github": "https://github.com/hades255/hades-Ecommerce-CI3.1.13-Bootstrap",
         "img": "CI-Ecommerce.png",
         "languages": [
@@ -155,6 +160,7 @@
     },
     {
         "title": "Transport Company",
+        "type": "public",
         "github": "https://github.com/hades255/skyNet-quotations-CI-PHP",
         "img": "lorry.png",
         "languages": [
@@ -196,6 +202,7 @@
     },
     {
         "title": "EShop",
+        "type": "public",
         "github": "https://github.com/hades255/hades-mern-eshop",
         "img": "eshop.png",
         "languages": [
@@ -222,6 +229,7 @@
     },
     {
         "title": "Visualizer",
+        "type": "public",
         "github": "https://github.com/hades255/skyNet-visualizer-next-react-node-js",
         "img": "visualizer.png",
         "languages": [
@@ -252,6 +260,7 @@
     },
     {
         "title": "MERN CRUD",
+        "type": "public",
         "github": "https://github.com/hades255/hades-mern-crud",
         "img": "react.png",
         "languages": [
@@ -281,6 +290,7 @@
     },
     {
         "title": "Nuxt CRUD",
+        "type": "public",
         "github": "https://github.com/hades255/hades-nuxt-vue3",
         "img": "nuxt.png",
         "languages": [
@@ -307,6 +317,7 @@
     },
     {
         "title": "MERN Ecommerce",
+        "type": "public",
         "github": "https://github.com/hades255/hades-mern-ecommerce",
         "img": "mern-eco.jpg",
         "languages": [
@@ -336,6 +347,7 @@
     },
     {
         "title": "MERN Marketplace",
+        "type": "public",
         "github": "https://github.com/hades255/hades-nuxt-vue3",
         "img": "mern-mar.png",
         "languages": [

@@ -1,4 +1,3 @@
-const { getDB } = require("../helpers/db");
 const Contact = require("../models/contact");
 
 const create = async (req, res, next) => {
