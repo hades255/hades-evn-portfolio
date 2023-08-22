@@ -1,0 +1,95 @@
+<div class="container rounded shadow mt-5 mb-5" id="contact">
+  <div class="accordion accordion-flush" id="contact-accordion">
+    <div class="accordion-item" v-for="(contact, index) in contacts">
+      <div class="accordion-header" :id="'flush-heading'+index">
+        <div
+          :class="'accordion-button collapsed' + (contact.read?' text-muted':' fw-bold')"
+          @click="setContactAsRead(contact)"
+          type="button"
+          data-bs-toggle="collapse"
+          :data-bs-target="'#flush-collapse'+index"
+          aria-expanded="false"
+          :aria-controls="'flush-collapse'+index"
+        >
+          <div class="w-100 d-flex justify-content-between">
+            <div>{{ contact.name }}</div>
+            <div class="" @click="setContactAsImportant(contact)">
+              <i
+                class="fa fa-star text-warning"
+                aria-hidden="true"
+                v-if="contact.bookmark"
+              ></i>
+              <i
+                class="fa fa-star-o"
+                aria-hidden="true"
+                v-if="!contact.bookmark"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        :id="'flush-collapse'+index"
+        class="accordion-collapse collapse"
+        :aria-labelledby="'flush-heading'+index"
+        data-bs-parent="#contact-accordion"
+      >
+        <div class="accordion-body">
+          {{ contact.message }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  new Vue({
+    el: "#contact",
+    data() {
+      return {
+        contacts: [],
+      };
+    },
+    created() {
+      this.getContacts();
+    },
+    methods: {
+      getContacts() {
+        fetch("/api/admin/contacts")
+          .then((res) => res.json())
+          .then((res) => {
+            if (res && res.length) this.contacts = res;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+      setContactAsRead(contact) {
+        if (!contact.read) {
+          fetch("/api/admin/contacts/" + contact.id + "/read", {
+            method: "POST",
+          })
+            .then((res) => res.json())
+            .then((res) => {
+              if (res && res.length) this.contacts = res;
+            })
+            .catch((err) => console.log(err));
+        }
+      },
+      setContactAsImportant(contact) {
+        fetch("/api/admin/contacts/" + contact.id + "/mark", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ bookmark: !contact.bookmark }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res && res.length) this.contacts = res;
+          })
+          .catch((err) => console.log(err));
+      },
+    },
+  });
+</script>

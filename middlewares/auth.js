@@ -2,11 +2,13 @@ const jwt = require("jsonwebtoken");
 
 const auth = (role) => (req, res, next) => {
   const token = req.cookies.token;
-  if (token == null) return res.redirect("/");
+  if (token == null) return role === "login" ? next() : res.redirect("/");
   jwt.verify(token, "process.env.TOKEN_SECRET", (err, user) => {
-    if (err) return res.redirect("/");
+    if (err)
+      return role === "login" ? next() : res.redirect("/");
     req.user = user;
-    next();
+    if (role === "login") res.redirect("/admin");
+    else next();
   });
 };
 
