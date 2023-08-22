@@ -394,30 +394,6 @@ body {
   font-size: 22px;
 }
 
-/* ///////////////////////////////////////////////////////////////////// 
-//  07 - More About Me 
-/////////////////////////////////////////////////////////////////////*/
-
-/* #services {
-	background: url(../img/bg/bg-2.jpg) no-repeat center center fixed;
-	background-size: cover;
-	color: #fff;
-}
-
-.pro-stat {
-	font-size: 20px;
-	text-transform: uppercase;
-	text-align: center;
-	font-style: italic;
-}
-
-.proj-name {
-	font-family: Pacifico;
-	font-size: 150px;
-	text-align: center;
-	line-height: 90%;
-	margin-bottom: 80px;
-} */
 #services .block-heading h1 {
   color: #fff;
 
@@ -549,19 +525,6 @@ ul.numbersList span {
   line-height: 36px;
   margin-top: 25px;
 }
-/* \. .contact-info i {
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 7px;
-  font-size: 25px;
-  border: 1px solid #fff;
-  text-align: center;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-} */
 
 .contact-info p {
   padding: 27px 10px;
@@ -571,9 +534,9 @@ ul.numbersList span {
   padding-left: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
   display: block;
   margin: 0 auto;
   width: 100%;
@@ -802,7 +765,6 @@ i.fa.fa-envelope-o {
   bottom: -40px;
   margin: 0 auto;
 }
-
 
 #tt-preloader {
   background: #fff;

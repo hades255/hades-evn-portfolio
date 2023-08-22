@@ -1,0 +1,102 @@
+<div class="container mt-5 mb-5 p-0 pt-3 pb-2">
+  <div
+    class="d-flex justify-content-center rounded shadow pt-5 pb-3"
+  >
+    <div class="col-8 d-flex flex-wrap">
+      <div class="col-md-4 col-sm-6 col-12 ps-2 pe-2 mb-4">
+        <div class="d-flex justify-content-center mb-4 d-block d-sm-none">
+          <button class="btn btn-outline-info">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="text" class="form-control border" />
+          <label class="form-label">Example label</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="text" class="form-control border" />
+          <label class="form-label">Example label</label>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input type="text" class="form-control border" />
+          <label class="form-label">Example label</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="text" class="form-control border" />
+          <label class="form-label">Example label</label>
+        </div>
+        <div class="form-select bg-transparent ps-0 pt-0 pb-0 mb-4">
+          <select class="form-control bg-transparent">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+          </select>
+        </div>
+        <div class="form-outline">
+          <select multiple data-role="tagsinput"></select>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-6 col-12 d-flex flex-wrap">
+        <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
+          <div
+            class="mb-4 d-none d-sm-block d-md-none d-sm-flex justify-content-end"
+          >
+            <button class="btn btn-outline-info">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+          </div>
+          <%- include("fileupload") %>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
+          <div
+            class="d-none d-md-block d-md-flex justify-content-end"
+          >
+            <button class="btn btn-outline-info">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="mt-4 d-flex justify-content-between mb-2">
+            <b class="text-info">Languages</b>
+            <button class="btn btn-outline-info btn-sm">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              aria-label="First name"
+              class="form-control border border-1 border-info"
+              placeholder="Name"
+            />
+            <input
+              type="text"
+              aria-label="Last name"
+              class="form-control border border-1 border-info"
+              placeholder="Rate"
+            />
+            <button
+              class="btn btn-outline-info input-group-text p-2 border border-1 border-info"
+            >
+              <i class="fa fa-check"></i>
+            </button>
+            <button
+              class="btn btn-outline-info input-group-text p-2 border border-1 border-info"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+          <div
+            class="d-flex justify-content-center mt-4 mb-4 d-block d-sm-none"
+          >
+            <button class="btn btn-outline-info">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

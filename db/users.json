@@ -1,0 +1,12 @@
+[
+    {
+        "id": "1692624855736RDujDXsxZaS2917Q",
+        "createdAt": "2023-08-21T13:34:15.736Z",
+        "updatedAt": "2023-08-21T13:34:15.736Z",
+        "name": "Sam Montgamery",
+        "email": "montgasam@gmail.com",
+        "role": "admin",
+        "salt": "699917702935",
+        "hashed_password": "8941d35934a8027b946627d86624c376f327085f"
+    }
+]

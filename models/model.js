@@ -17,30 +17,69 @@ function generateRandomId() {
 
 function Model(db) {
   this.id = "";
-  this.createdAt = "";
+  this.createdAt = new Date();
   this.updatedAt = "";
+  this.id = generateRandomId();
+
   this.add = function (data) {
     for (let [key, value] of Object.entries(data)) {
       this[key] = value;
     }
-    this.id = generateRandomId();
-    this.createdAt = new Date();
-    this.updatedAt = new Date();
     return this;
   };
-  this.save = async function () {
+
+  this.save = async function (isNew = true) {
     try {
-      let contacts = await getDB(db);
-      contacts.push(this);
-      setDB(db, JSON.stringify(contacts));
+      this.updatedAt = new Date();
+      let list = await getDB(db);
+      if (isNew) list.push(this);
+      else {
+        list = list.map((item) => (item.id === this.id ? this : item));
+      }
+      await setDB(db, JSON.stringify(list));
+      return this;
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
+
   this.all = async function () {
     try {
       return await getDB(db);
-    } catch (error) {}
+    } catch (error) {
+      return error;
+    }
+  };
+
+  this.findOne = async function (key, value) {
+    try {
+      const data = await this.all();
+      for (let item of data) {
+        if (item[key] === value) return new Model(db).add({ ...this, ...item });
+      }
+      return null;
+    } catch (error) {
+      return error;
+    }
+  };
+  this.findOneById = async function (value) {
+    try {
+      const data = await this.all();
+      for (let item of data) {
+        if (item.id === value) return new Model(db).add({ ...this, ...item });
+      }
+      return null;
+    } catch (error) {
+      return error;
+    }
+  };
+  this.updateOneById = async function (id, data) {
+    try {
+      const item = await this.findOneById(id);
+      return await item.add(data).save(false);
+    } catch (error) {
+      return error;
+    }
   };
 }
 
