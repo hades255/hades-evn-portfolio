@@ -1,42 +1,50 @@
-<div class="container mt-5 mb-5 p-0 pt-3 pb-2">
-  <div
-    class="d-flex justify-content-center rounded shadow pt-5 pb-3"
-  >
+<div class="container mt-5 mb-5 p-0 pt-3 pb-2" id="repositories">
+  <div class="d-flex justify-content-center rounded shadow pt-5 pb-3">
     <div class="col-8 d-flex flex-wrap">
       <div class="col-md-4 col-sm-6 col-12 ps-2 pe-2 mb-4">
         <div class="d-flex justify-content-center mb-4 d-block d-sm-none">
-          <button class="btn btn-outline-info">
+          <button
+            class="btn btn-outline-info"
+            type="submit"
+            @click="handleSubmit"
+          >
             <i class="fa fa-check" aria-hidden="true"></i>
           </button>
         </div>
         <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
+          <input
+            type="text"
+            class="form-control border"
+            placeholder="Title"
+            v-model="repo.title"
+          />
         </div>
         <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
+          <input
+            type="text"
+            class="form-control border"
+            placeholder="Github"
+            v-model="repo.github"
+          />
         </div>
-
         <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
-        </div>
-        <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
+          <input
+            type="text"
+            class="form-control border"
+            placeholder="Code"
+            v-model="repo.code"
+          />
         </div>
         <div class="form-select bg-transparent ps-0 pt-0 pb-0 mb-4">
-          <select class="form-control bg-transparent">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
+          <select class="form-control bg-transparent" v-model="repo.type">
+            <option value="personal">Personal</option>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
           </select>
         </div>
         <div class="form-outline">
-          <select multiple data-role="tagsinput"></select>
+          <label for="" class="form-label">Tags</label>
+          <select multiple data-role="tagsinput" id="tagsinput"></select>
         </div>
       </div>
       <div class="col-md-8 col-sm-6 col-12 d-flex flex-wrap">
@@ -44,17 +52,23 @@
           <div
             class="mb-4 d-none d-sm-block d-md-none d-sm-flex justify-content-end"
           >
-            <button class="btn btn-outline-info">
+            <button
+              class="btn btn-outline-info"
+              type="submit"
+              @click="handleSubmit"
+            >
               <i class="fa fa-check" aria-hidden="true"></i>
             </button>
           </div>
           <%- include("fileupload") %>
         </div>
         <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
-          <div
-            class="d-none d-md-block d-md-flex justify-content-end"
-          >
-            <button class="btn btn-outline-info">
+          <div class="d-none d-md-block d-md-flex justify-content-end">
+            <button
+              class="btn btn-outline-info"
+              type="submit"
+              @click="handleSubmit"
+            >
               <i class="fa fa-check" aria-hidden="true"></i>
             </button>
           </div>
@@ -64,34 +78,61 @@
               <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="input-group">
+          <div
+            class="input-group input-group-sm"
+            v-for="lang in repo.languages"
+          >
             <input
               type="text"
               aria-label="First name"
-              class="form-control border border-1 border-info"
-              placeholder="Name"
+              class="form-control"
+              readonly
+              :value="lang.name"
             />
             <input
               type="text"
               aria-label="Last name"
-              class="form-control border border-1 border-info"
-              placeholder="Rate"
+              class="form-control"
+              readonly
+              :value="lang.rate"
             />
             <button
-              class="btn btn-outline-info input-group-text p-2 border border-1 border-info"
-            >
-              <i class="fa fa-check"></i>
-            </button>
-            <button
-              class="btn btn-outline-info input-group-text p-2 border border-1 border-info"
+              class="btn btn-outline-danger input-group-text p-2"
+              @click="handleRmLang"
             >
               <i class="fa fa-trash"></i>
+            </button>
+          </div>
+          <div class="input-group input-group-sm">
+            <input
+              type="text"
+              aria-label="First name"
+              class="form-control border-info"
+              placeholder="Name"
+              v-model="lan.name"
+            />
+            <input
+              type="text"
+              aria-label="Last name"
+              class="form-control border-info"
+              placeholder="Rate"
+              v-model="lan.rate"
+            />
+            <button
+              class="btn btn-outline-info input-group-text p-2"
+              @click="handleAddLang"
+            >
+              <i class="fa fa-check"></i>
             </button>
           </div>
           <div
             class="d-flex justify-content-center mt-4 mb-4 d-block d-sm-none"
           >
-            <button class="btn btn-outline-info">
+            <button
+              class="btn btn-outline-info"
+              type="submit"
+              @click="handleSubmit"
+            >
               <i class="fa fa-check" aria-hidden="true"></i>
             </button>
           </div>
@@ -100,3 +141,75 @@
     </div>
   </div>
 </div>
+
+<script type="module">
+  new Vue({
+    el: "#repositories",
+    data() {
+      return {
+        repos: "[]",
+        lan: { name: "", rate: "" },
+        repo: {
+          title: "",
+          type: "personal",
+          github: "",
+          img: "",
+          languages: [],
+          code: "",
+          tag: [],
+        },
+        file: "",
+      };
+    },
+    created() {
+      this.getFromGithub();
+    },
+    methods: {
+      getFromGithub() {
+        fetch(
+          "https://github.com/hades255?tab=repositories&q=&type=public&language=&sort=",
+          {
+            method: "GET",
+            mode: "no-cors",
+            headers: {
+              "Sec-Fetch-Mode": "cors",
+              "Sec-Fetch-Site": "same-origin",
+              "X-Requested-With": "XMLHttpRequest",
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+      handleAddLang() {
+        this.repo.languages.push({ name: this.lan.name, rate: this.lan.rate });
+        this.lan.name = "";
+        this.lan.rate = "";
+      },
+      handleRmLang() {},
+      handleSubmit() {
+        event.preventDefault();
+        this.repo.tag = $("#tagsinput").val();
+        console.log(this.repo);
+      },
+      handleFileChange(e) {
+        const form = new FormData();
+        form.append("file", e.target.files[0]);
+        fetch("/api/upload", {
+          method: "POST",
+          body: form,
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            this.repo.img = res.file;
+          })
+          .catch((err) => ("Error occured", err));
+      },
+    },
+  });
+</script>
