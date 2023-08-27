@@ -98,7 +98,7 @@
             />
             <button
               class="btn btn-outline-danger input-group-text p-2"
-              @click="handleRmLang"
+              @click="handleRmLang(lang.name)"
             >
               <i class="fa fa-trash"></i>
             </button>
@@ -187,15 +187,43 @@
           });
       },
       handleAddLang() {
+        if (!this.lan.name || !this.lan.rate) return;
         this.repo.languages.push({ name: this.lan.name, rate: this.lan.rate });
         this.lan.name = "";
         this.lan.rate = "";
       },
-      handleRmLang() {},
+      handleRmLang(id) {
+        this.repo.languages = this.repo.languages.filter(
+          ({ name }) => name !== id
+        );
+      },
       handleSubmit() {
         event.preventDefault();
         this.repo.tag = $("#tagsinput").val();
-        console.log(this.repo);
+        fetch("/api/repos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.repo),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "Your request is successfuly sended.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
+          });
       },
       handleFileChange(e) {
         const form = new FormData();

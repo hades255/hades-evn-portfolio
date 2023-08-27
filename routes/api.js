@@ -10,6 +10,8 @@ const {
   setAsImportant,
 } = require("../controllers/contact");
 const { signup, signin } = require("../controllers/auth");
+const { store } = require("../controllers/repos");
+const { auth } = require("../middlewares/auth");
 const router = express.Router();
 
 /* GET users listing. */
@@ -20,6 +22,8 @@ router.post("/contact", create);
 router.get("/admin/contacts", apicontacts);
 router.post("/admin/contacts/:id/read", setAsRead);
 router.post("/admin/contacts/:id/mark", setAsImportant);
+
+router.post("/repos", store);
 
 router.post("/upload", upload.single("file"), (req, res, next) => {
   res.json({ file: req.file.filename });

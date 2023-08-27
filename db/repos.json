@@ -366,5 +366,26 @@
             "Ecommerce",
             "Mern"
         ]
+    },
+    {
+        "id": "1693108456327Gf27ju9zBbeDB4Dm",
+        "createdAt": "2023-08-27T03:54:16.327Z",
+        "updatedAt": "2023-08-27T03:54:54.414Z",
+        "title": "asd",
+        "type": "personal",
+        "github": "qweqweqw",
+        "img": "ec17608e78f0028a4daeed2388538133",
+        "languages": [
+            {
+                "name": "qweas",
+                "rate": "32.5"
+            }
+        ],
+        "code": "123",
+        "tag": [
+            "asd",
+            "qwe",
+            "zxc"
+        ]
     }
 ]
