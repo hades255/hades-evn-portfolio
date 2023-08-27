@@ -1,0 +1,168 @@
+<div class="container" id="repositories">
+  <%- include("newRepo") %>
+  <span class="d-none" id="init-repos"><%= JSON.stringify(repos) %></span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Langauges</th>
+        <th>Code</th>
+        <th>Tag</th>
+        <th>Created</th>
+        <th>Last Update</th>
+        <th><i class="fa fa-gear" aria-hidden="true"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(repo_,index) in repos">
+        <td>{{ index + 1 }}</td>
+        <td>{{ repo_.title }}</td>
+        <td>
+          <small>{{ repo_.languages.map(({name})=>name) }}</small>
+        </td>
+        <td>{{ repo_.code }}</td>
+        <td>
+          <small>{{ repo_.tag }}</small>
+        </td>
+        <td>{{ repo_.createdAt }}</td>
+        <td>{{ repo_.updatedAt }}</td>
+        <td>
+          <i
+            class="fa fa-trash btn btn-outline-danger btn-sm"
+            aria-hidden="true"
+            @click="handleRemoveRepo(repo_.id)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script type="module">
+  new Vue({
+    el: "#repositories",
+    data() {
+      return {
+        repos: JSON.parse($("#init-repos").text()),
+        lan: { name: "", rate: "" },
+        repo: {
+          title: "",
+          type: "personal",
+          github: "",
+          img: "",
+          languages: [],
+          code: "",
+          tag: [],
+        },
+        file: "",
+      };
+    },
+    created() {
+      // this.getFromGithub();
+    },
+    methods: {
+      getFromGithub() {
+        fetch(
+          "https://github.com/hades255?tab=repositories&q=&type=public&language=&sort=",
+          {
+            method: "GET",
+            mode: "no-cors",
+            headers: {
+              "Sec-Fetch-Mode": "cors",
+              "Sec-Fetch-Site": "same-origin",
+              "X-Requested-With": "XMLHttpRequest",
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+      handleAddLang() {
+        if (!this.lan.name || !this.lan.rate) return;
+        this.repo.languages.push({ name: this.lan.name, rate: this.lan.rate });
+        this.lan.name = "";
+        this.lan.rate = "";
+      },
+      handleRmLang(id) {
+        this.repo.languages = this.repo.languages.filter(
+          ({ name }) => name !== id
+        );
+      },
+      handleSubmit() {
+        event.preventDefault();
+        this.repo.tag = $("#tagsinput").val();
+        fetch("/api/repos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.repo),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "Your request is successfuly sended.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
+          });
+      },
+      handleFileChange(e) {
+        const form = new FormData();
+        form.append("file", e.target.files[0]);
+        fetch("/api/upload", {
+          method: "POST",
+          body: form,
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            this.repo.img = res.file;
+          })
+          .catch((err) => ("Error occured", err));
+      },
+      handleRemoveRepo(id) {
+        if (!window.confirm("Confirm Delete?")) return;
+        fetch("/api/repos", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ repo: id }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "Your request is successfuly sended.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+            this.repos = res;
+          })
+          .catch((error) => {
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
+          });
+      },
+    },
+  });
+</script>

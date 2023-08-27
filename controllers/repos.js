@@ -9,4 +9,14 @@ const store = async (req, res, next) => {
   }
 };
 
-module.exports = { store };
+const destroy = async (req, res, next) => {
+  try {
+    await Repo.RemoveById(req.body.repo);
+    const repos = await Repo.all();
+    res.json(repos);
+  } catch (error) {
+    return next(error);
+  }
+};
+
+module.exports = { store, destroy };

@@ -1,6 +1,12 @@
-<div class="container rounded shadow mt-5 mb-5" id="contact">
+<div class="container mt-5 mb-5" id="contact">
+  <div class="d-flex">
+    <span class="text-primary fw-bold" style="font-size: 30px"> Contacts </span>
+  </div>
   <div class="accordion accordion-flush" id="contact-accordion">
-    <div class="accordion-item" v-for="(contact, index) in contacts">
+    <div
+      class="accordion-item rounded shadow"
+      v-for="(contact, index) in contacts"
+    >
       <div class="accordion-header" :id="'flush-heading'+index">
         <div
           :class="'accordion-button collapsed' + (contact.read?' text-muted':' fw-bold')"
@@ -12,7 +18,7 @@
           :aria-controls="'flush-collapse'+index"
         >
           <div class="w-100 d-flex justify-content-between">
-            <div>{{ contact.name }}</div>
+            <div>{{ contact.name }} {{ contact.createdAt }}</div>
             <div class="" @click="setContactAsImportant(contact)">
               <i
                 class="fa fa-star text-warning"
@@ -34,7 +40,9 @@
         :aria-labelledby="'flush-heading'+index"
         data-bs-parent="#contact-accordion"
       >
-        <div class="accordion-body">
+        <div class="accordion-body ms-5 me-5">
+          {{ contact.email }}
+          <hr />
           {{ contact.message }}
         </div>
       </div>
