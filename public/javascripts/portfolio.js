@@ -11,7 +11,6 @@ $(document).ready(function () {
   $("#filter a").click(function (e) {
     e.preventDefault();
     $("#filter a").removeClass("active");
-    $("#more-filter").addClass("d-none");
     $(this).addClass("active");
     var groupName = $(this).attr("data-group");
     $grid.shuffle("shuffle", groupName);
@@ -20,9 +19,6 @@ $(document).ready(function () {
   $("#more-filters").change(function (e) {
     if (e.target.value === "") return;
     $("#filter a").removeClass("active");
-    $("#more-filter a").text(e.target.value);
-    $("#more-filter").removeClass("d-none");
-    $("#more-filter a").addClass("active");
     $grid.shuffle("shuffle", e.target.value);
   });
 
