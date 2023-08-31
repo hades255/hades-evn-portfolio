@@ -45,14 +45,14 @@
     data() {
       return {
         repos: JSON.parse($("#init-repos").text()),
-        lan: { name: "", rate: "" },
+        lan: { name: "", rate: 0 },
         repo: {
           title: "",
           type: "personal",
           github: "",
           img: "",
           languages: [],
-          code: "",
+          code: 0,
           tag: [],
         },
         file: "",

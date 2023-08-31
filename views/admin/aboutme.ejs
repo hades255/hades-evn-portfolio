@@ -1,0 +1,125 @@
+<div class="container mt-5 mb-5" id="my-skills">
+  <span class="text-primary fw-bold" style="font-size: 30px">
+    Repositories
+  </span>
+  <div class="d-flex">
+    <div class="col-md-6 ps-3 pe-3">
+      <div class="d-flex justify-content-between mb-3">
+        <h4>Languages</h4>
+        <button class="btn btn-outline-primary" @click="handleSubmitLang">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div v-for="(value, key) in languages" class="input-group">
+        <div class="input-group-text">{{ key }}:</div>
+        <input type="text" class="form-control" v-model="languages[key]" />
+        <div class="input-group-text border-o bg-transparent">%</div>
+      </div>
+      <div class="input-group mt-3">
+        <input type="text" class="form-control" v-model="name" />
+        <div class="input-group-text">:</div>
+        <input type="text" class="form-control" v-model="rate" />
+        <div class="input-group-text border-o bg-transparent">%</div>
+        <div
+          class="input-group-text btn btn-outline-primary"
+          @click="handleAddNewLang"
+        >
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 ps-3 pe-3">
+      <div class="d-flex justify-content-between mb-3">
+        <h4>Technics</h4>
+        <button class="btn btn-outline-primary" @click="handleSubmitTech">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div v-for="(value, key) in technics" class="input-group">
+        <div class="input-group-text">{{ key }}:</div>
+        <input type="text" class="form-control" v-model="technics[key]" />
+        <div class="input-group-text border-o bg-transparent">%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="init-skills" class="d-none"> <%= JSON.stringify(skills) %> </span>
+
+<script type="module">
+  new Vue({
+    el: "#my-skills",
+    data() {
+      return {
+        ...JSON.parse($("#init-skills").text()),
+        name: "",
+        rate: "",
+      };
+    },
+    methods: {
+      handleAddNewLang() {
+        if (this.name && this.rate) {
+          this.languages[this.name] = Number(this.rate);
+          this.name = "";
+          this.rate = "";
+        }
+      },
+      handleSubmitLang() {
+        console.log(this.languages);
+        fetch("/api/admin/skills", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({ languages: this.languages }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "Your request is successfuly sended.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
+          });
+      },
+      handleSubmitTech() {
+        console.log(this.technics);
+        fetch("/api/admin/skills", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({ technics: this.technics }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "Your request is successfuly sended.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
+          });
+      },
+    },
+  });
+</script>

@@ -31,5 +31,15 @@ $(document).ready(function () {
     });
   })();
 
+  setTimeout(() => {
+    if (location.href.lastIndexOf("=") !== -1) {
+      $("#filter a").removeClass("active");
+      $grid.shuffle(
+        "shuffle",
+        location.href.substring(location.href.lastIndexOf("=") + 1)
+      );
+    }
+  }, 100);
+
   $("#chartContainer").CanvasJSChart(options);
 });
