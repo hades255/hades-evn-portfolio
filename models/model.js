@@ -81,6 +81,15 @@ function Model(db) {
       return error;
     }
   };
+  this.RemoveById = async function (par) {
+    try {
+      let data = await this.all();
+      data = data.filter(({ id }) => id !== par);
+      await setDB(db, JSON.stringify(data));
+    } catch (error) {
+      return error;
+    }
+  };
 }
 
 module.exports = Model;

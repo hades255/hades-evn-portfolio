@@ -1,11 +1,11 @@
-<!-- <div id="tt-preloader">
+<div id="tt-preloader">
   <div id="pre-status">
     <div class="preload-placeholder"></div>
   </div>
-</div> -->
-
+</div>
 <div class="content-block" id="header">
   <div id="overlay-1">
+    <canvas class="background"></canvas>
     <header id="site-header" class="clearfix navbar navbar-expand-lg">
       <div class="container-fluid m-0 p-0">
         <h1 class="navbar-brand mt-1 mb-1">
@@ -83,3 +83,14 @@
   </div>
   <!-- overlay-1 -->
 </div>
+
+<script>
+  $(document).ready(function () {
+    Particles.init({
+      selector: ".background",
+      color: "#ccccff",
+      connectParticles: true,
+      speed: 1.5,
+    });
+  });
+</script>

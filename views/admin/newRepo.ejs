@@ -1,99 +1,187 @@
-<div class="container mt-5 mb-5 p-0 pt-3 pb-2">
-  <div
-    class="d-flex justify-content-center rounded shadow pt-5 pb-3"
-  >
-    <div class="col-8 d-flex flex-wrap">
-      <div class="col-md-4 col-sm-6 col-12 ps-2 pe-2 mb-4">
-        <div class="d-flex justify-content-center mb-4 d-block d-sm-none">
-          <button class="btn btn-outline-info">
-            <i class="fa fa-check" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
-        </div>
-        <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
-        </div>
+<div class="container mt-5 pt-5">
+  <div class="d-flex justify-content-between">
+    <span class="text-primary fw-bold" style="font-size: 30px">
+      Repositories
+    </span>
+    <button
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#add-new-repo"
+    >
+      New <i class="fa fa-plus"></i>
+    </button>
+  </div>
+</div>
 
-        <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
-        </div>
-        <div class="form-outline mb-4">
-          <input type="text" class="form-control border" />
-          <label class="form-label">Example label</label>
-        </div>
-        <div class="form-select bg-transparent ps-0 pt-0 pb-0 mb-4">
-          <select class="form-control bg-transparent">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-          </select>
-        </div>
-        <div class="form-outline">
-          <select multiple data-role="tagsinput"></select>
-        </div>
+<div
+  class="modal fade"
+  id="add-new-repo"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="col-md-8 col-sm-6 col-12 d-flex flex-wrap">
-        <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
-          <div
-            class="mb-4 d-none d-sm-block d-md-none d-sm-flex justify-content-end"
-          >
-            <button class="btn btn-outline-info">
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
+      <div class="modal-body">
+        <div class="d-flex flex-wrap">
+          <div class="col-md-4 col-sm-6 col-12 ps-2 pe-2 mb-4">
+            <div class="d-flex justify-content-center mb-4 d-block d-sm-none">
+              <button
+                class="btn btn-outline-info"
+                type="submit"
+                @click="handleSubmit"
+              >
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                class="form-control border"
+                name="title"
+                placeholder="Title"
+                v-model="repo.title"
+              />
+            </div>
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                class="form-control border"
+                name="github"
+                placeholder="Github"
+                v-model="repo.github"
+              />
+            </div>
+            <div class="form-outline mb-4">
+              <input
+                type="text"
+                class="form-control border"
+                name="code"
+                placeholder="Code"
+                v-model="repo.code"
+              />
+            </div>
+            <div class="form-select bg-transparent ps-0 pt-0 pb-0 mb-4">
+              <select
+                class="form-control bg-transparent"
+                v-model="repo.type"
+                name="type"
+              >
+                <option value="personal">Personal</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+              </select>
+            </div>
+            <div class="form-outline">
+              <label for="tagsinput" class="form-label">Tags</label>
+              <select multiple data-role="tagsinput" id="tagsinput"></select>
+            </div>
           </div>
-          <%- include("fileupload") %>
-        </div>
-        <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
-          <div
-            class="d-none d-md-block d-md-flex justify-content-end"
-          >
-            <button class="btn btn-outline-info">
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div class="mt-4 d-flex justify-content-between mb-2">
-            <b class="text-info">Languages</b>
-            <button class="btn btn-outline-info btn-sm">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div class="input-group">
-            <input
-              type="text"
-              aria-label="First name"
-              class="form-control border border-1 border-info"
-              placeholder="Name"
-            />
-            <input
-              type="text"
-              aria-label="Last name"
-              class="form-control border border-1 border-info"
-              placeholder="Rate"
-            />
-            <button
-              class="btn btn-outline-info input-group-text p-2 border border-1 border-info"
-            >
-              <i class="fa fa-check"></i>
-            </button>
-            <button
-              class="btn btn-outline-info input-group-text p-2 border border-1 border-info"
-            >
-              <i class="fa fa-trash"></i>
-            </button>
-          </div>
-          <div
-            class="d-flex justify-content-center mt-4 mb-4 d-block d-sm-none"
-          >
-            <button class="btn btn-outline-info">
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
+          <div class="col-md-8 col-sm-6 col-12 d-flex flex-wrap">
+            <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
+              <div
+                class="mb-4 d-none d-sm-block d-md-none d-sm-flex justify-content-end"
+              >
+                <button
+                  class="btn btn-outline-info"
+                  type="submit"
+                  @click="handleSubmit"
+                >
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+              </div>
+              <%- include("fileupload") %>
+            </div>
+            <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
+              <div class="d-none d-md-block d-md-flex justify-content-end">
+                <button
+                  class="btn btn-outline-info"
+                  type="submit"
+                  @click="handleSubmit"
+                >
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="mt-4 d-flex justify-content-between mb-2">
+                <b class="text-info">Languages</b>
+                <button class="btn btn-outline-info btn-sm">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div
+                class="input-group input-group-sm"
+                v-for="lang in repo.languages"
+              >
+                <input
+                  type="text"
+                  aria-label="First name"
+                  class="form-control"
+                  name="name"
+                  readonly
+                  :value="lang.name"
+                />
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control"
+                  name="rate"
+                  readonly
+                  :value="lang.rate"
+                />
+                <button
+                  class="btn btn-outline-danger input-group-text p-2"
+                  @click="handleRmLang(lang.name)"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+              <div class="input-group input-group-sm">
+                <input
+                  type="text"
+                  aria-label="First name"
+                  class="form-control border-info"
+                  name="name"
+                  placeholder="Name"
+                  v-model="lan.name"
+                />
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control border-info"
+                  name="rate"
+                  placeholder="Rate"
+                  v-model="lan.rate"
+                />
+                <button
+                  class="btn btn-outline-info input-group-text p-2"
+                  @click="handleAddLang"
+                >
+                  <i class="fa fa-check"></i>
+                </button>
+              </div>
+              <div
+                class="d-flex justify-content-center mt-4 mb-4 d-block d-sm-none"
+              >
+                <button
+                  class="btn btn-outline-info"
+                  type="submit"
+                  @click="handleSubmit"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
