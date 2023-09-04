@@ -9,7 +9,8 @@
         "node.js": 90,
         "React": 95,
         "Vue": 85,
-        "Laravel": 90
+        "Laravel": 90,
+        "CI": 80
     },
     "technics": {
         "Communication": 87,
@@ -18,5 +19,12 @@
         "Management": 78,
         "Smarty": 90,
         "UI/UX Design": 66
-    }
+    },
+    "projects": {
+        "completed": 60,
+        "working": 20,
+        "topRated": 20
+    },
+    "conference": 41,
+    "happyClients": 34
 }
