@@ -26,7 +26,7 @@
           >
             <i class="fa fa-refresh" aria-hidden="true"></i>
           </button>
-          <button class="btn btn-primary" onclick="refreshRepoTextarea()">
+          <button class="btn btn-primary" onclick="downloadRepo()">
             <i class="fa fa-download" aria-hidden="true"></i>
           </button>
           <button class="btn btn-success" onclick="saveRepoTextarea()">
@@ -61,7 +61,12 @@
         editor.set(res);
       })
       .catch((err) => {
-        console.log(err);
+        $.toast({
+          heading: "Failure",
+          text: "Something went wrong! Please try later.",
+          showHideTransition: "slide",
+          icon: "error",
+        });
       });
   }
   function saveRepoTextarea() {
@@ -74,10 +79,41 @@
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        $.toast({
+          heading: "Success",
+          text: "Your request is successfuly sended.",
+          showHideTransition: "slide",
+          icon: "success",
+        });
       })
       .catch((err) => {
-        console.log(err);
+        $.toast({
+          heading: "Failure",
+          text: "Something went wrong! Please try later.",
+          showHideTransition: "slide",
+          icon: "error",
+        });
+      });
+  }
+  function downloadRepo() {
+    fetch("/api/db/repos", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: editor.get() }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        window.open(res.url, "_blank");
+      })
+      .catch((err) => {
+        $.toast({
+          heading: "Failure",
+          text: "Something went wrong! Please try later.",
+          showHideTransition: "slide",
+          icon: "error",
+        });
       });
   }
 </script>
