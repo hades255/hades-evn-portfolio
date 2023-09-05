@@ -21,31 +21,5 @@
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="javascripts/portfolio.js"></script>
-
-    <script>
-      const options = {
-        title: {
-          text: "Language Usages",
-        },
-        subtitles: [
-          {
-            text: "<%= code.num %><%= code.suf %>+ lines of CODE",
-          },
-        ],
-        animationEnabled: true,
-        data: [
-          {
-            type: "pie",
-            startAngle: 40,
-            toolTipContent: "<b>{label}</b>:{x}{z}+ <sub>lines</sub> {y}%",
-            showInLegend: "true",
-            legendText: "{label}",
-            indexLabelFontSize: 16,
-            indexLabel: "{label} - {x}{z}+",
-            dataPoints: JSON.parse($("#languages-detail-values").text()),
-          },
-        ],
-      };
-    </script>
   </body>
 </html>
