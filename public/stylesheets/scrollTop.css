@@ -1,8 +1,7 @@
-
 /*===============================
     Scroll Top
 ===============================*/
-#scroll-Top  .return-to-top {
+#scroll-Top .return-to-top {
   position: fixed;
   right: 30px;
   bottom: 30px;
@@ -14,37 +13,79 @@
   font-size: 20px;
   cursor: pointer;
   color: #fff;
-  background:#b636ff;
-border:1px solid #b636ff;
-border-radius:50%;
--webkit-transition: .5s; 
--moz-transition:.5s; 
--ms-transition:.5s; 
--o-transition:.5s;
-  transition: .5s;
-z-index: 2;
+  background: #b636ff;
+  border: 1px solid #b636ff;
+  border-radius: 50%;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 2;
 }
-#scroll-Top  .return-to-top:hover {
-  background:#fff;
+#scroll-Top .return-to-top:hover {
+  background: #fff;
   color: #b636ff;
-border:1px solid #b636ff;
+  border: 1px solid #b636ff;
 }
 
-#scroll-Top  .return-to-top i{
-  position:relative;
-  bottom:0;
-
+#scroll-Top .return-to-top i {
+  position: relative;
+  bottom: 0;
 }
 
-#scroll-Top  .return-to-top i{
+#scroll-Top .return-to-top i {
   position: relative;
   animation-name: example;
   animation-direction: alternate;
   animation-iteration-count: infinite;
-  animation-duration:1s;
+  animation-duration: 1s;
 }
 @keyframes example {
-  0%   {bottom:0px;}
-  100%  {bottom:7px;}
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 7px;
+  }
 }
-/*========================Thank you=================
+/*========================Thank you=================*/
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0ae;
+
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    color-stop(0.5, rgba(255, 255, 255, 0.2)),
+    color-stop(0.5, transparent),
+    to(transparent)
+  );
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(0, 153, 255);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}

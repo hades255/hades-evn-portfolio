@@ -1,42 +1,44 @@
 <div class="container" id="repositories">
   <%- include("newRepo") %>
   <span class="d-none" id="init-repos"><%= JSON.stringify(repos) %></span>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Title</th>
-        <th>Langauges</th>
-        <th>Code</th>
-        <th>Tag</th>
-        <th>Created</th>
-        <th>Last Updated</th>
-        <th><i class="fa fa-gear" aria-hidden="true"></i></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(repo_,index) in repos">
-        <td>{{ index + 1 }}</td>
-        <td>{{ repo_.title }}</td>
-        <td>
-          <small>{{ repo_.languages.map(({name})=>name) }}</small>
-        </td>
-        <td>{{ repo_.code }}</td>
-        <td>
-          <small>{{ repo_.tag }}</small>
-        </td>
-        <td>{{ repo_.createdAt }}</td>
-        <td>{{ repo_.updatedAt }}</td>
-        <td>
-          <i
-            class="fa fa-trash btn btn-outline-danger btn-sm"
-            aria-hidden="true"
-            @click="handleRemoveRepo(repo_.id)"
-          ></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="p-1 m-1 mt-3 overflow-8 border shadow rounded">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Title</th>
+          <th>Langauges</th>
+          <th>Code</th>
+          <th>Tag</th>
+          <th>Created</th>
+          <th>Last Updated</th>
+          <th><i class="fa fa-gear" aria-hidden="true"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(repo_,index) in repos">
+          <td>{{ index + 1 }}</td>
+          <td>{{ repo_.title }}</td>
+          <td>
+            <small>{{ repo_.languages.map(({name})=>name) }}</small>
+          </td>
+          <td>{{ repo_.code }}</td>
+          <td>
+            <small>{{ repo_.tag }}</small>
+          </td>
+          <td>{{ repo_.createdAt }}</td>
+          <td>{{ repo_.updatedAt }}</td>
+          <td>
+            <i
+              class="fa fa-trash btn btn-outline-danger btn-sm"
+              aria-hidden="true"
+              @click="handleRemoveRepo(repo_.id)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script type="module">
