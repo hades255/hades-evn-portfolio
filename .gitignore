@@ -1,4 +1,4 @@
 node_modules
 package-lock.json
 public/uploads
-public/download
+public/download/*
