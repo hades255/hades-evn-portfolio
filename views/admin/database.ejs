@@ -1,0 +1,83 @@
+<div class="container mt-3 mb-5">
+  <button
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#edit-db-with-json"
+    onclick="refreshRepoTextarea()"
+  >
+    <i class="fa fa-asterisk" aria-hidden="true"></i> Edit with JSON
+  </button>
+</div>
+
+<div
+  class="modal fade"
+  id="edit-db-with-json"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="btn-group">
+          <button
+            class="btn btn-warning text-white"
+            onclick="refreshRepoTextarea()"
+          >
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-primary" onclick="refreshRepoTextarea()">
+            <i class="fa fa-download" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-success" onclick="saveRepoTextarea()">
+            <i class="fa fa-save" aria-hidden="true"></i>
+          </button>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div id="jsoneditor" class="overflow-8"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById("jsoneditor");
+  const options = {};
+  const editor = new JSONEditor(container, options);
+
+  function refreshRepoTextarea() {
+    fetch("/api/db/repos")
+      .then((res) => res.json())
+      .then((res) => {
+        editor.set(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  function saveRepoTextarea() {
+    fetch("/api/db/repos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: editor.get() }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+</script>

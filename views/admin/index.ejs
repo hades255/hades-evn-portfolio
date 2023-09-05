@@ -13,6 +13,7 @@
     <!-- <link rel="stylesheet" href="css/mdb/file-upload.min.css" /> -->
     <link rel="stylesheet" href="css/bootstrap-tagsinput.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jsoneditor.min.css" />
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/toast.css" />
     <!-- <link rel="stylesheet" href="css/mdb/core.min.css" /> -->
@@ -21,9 +22,11 @@
 
     <link rel="stylesheet" href="stylesheets/scrollTop.css" />
     <link rel="stylesheet" href="stylesheets/admin.css" />
-    
+
     <script src="js/vue.min.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
+
+    <script src="js/jsoneditor.min.js"></script>
 
     <style>
       .label {
@@ -134,12 +137,16 @@
     <div class="container border"></div>
 
     <%- include("aboutme") %>
-    
+
     <div class="container border"></div>
-    
+
     <%- include("contacts") %>
 
-    <footer id="site-footer" class="fixed-bottom">
+    <div class="container border"></div>
+
+    <%- include("database") %>
+
+    <footer id="site-footer" class="fixed-bottom bg-secondary text-white">
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
@@ -148,7 +155,9 @@
           <div class="col-sm-6">
             <div class="designed-by">
               Developed with
-              <a href="#" target="_blank">EVN(Expressjs, Vue.js, Node.js)</a>
+              <a href="#" target="_blank" class="text-white fw-bold"
+                >EVN(Expressjs, Vue.js, Node.js)</a
+              >
             </div>
           </div>
         </div>

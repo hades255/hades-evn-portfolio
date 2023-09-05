@@ -13,6 +13,7 @@ const { signup, signin } = require("../controllers/auth");
 const { store, destroy } = require("../controllers/repos");
 const { authJWT } = require("../middlewares/auth");
 const { updateSkills } = require("../controllers/skills");
+const { getFromDB, setToDB } = require("../controllers/db");
 const router = express.Router();
 
 /* GET users listing. */
@@ -27,6 +28,8 @@ router.post("/admin/contacts/:id/mark", setAsImportant);
 router.put("/admin/skills", authJWT, updateSkills);
 
 router.route("/repos").post(store).delete(destroy);
+
+router.route("/db/:dbname").get(getFromDB).post(setToDB);
 
 router.post("/upload", upload.single("file"), (req, res, next) => {
   res.json({ file: req.file.filename });
