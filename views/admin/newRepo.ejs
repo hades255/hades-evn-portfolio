@@ -184,7 +184,7 @@
             </div>
           </div>
           <div class="d-flex flex-wrap">
-            <span v-for="tag in usedTags" :class="usedTagBadgeClass(tag)" @click="handleUsedTagClick(tag)">
+            <span v-for="(tag, index) in usedTags" :class="usedTagBadgeClass(index)" @click="handleUsedTagClick(tag)">
               {{ tag }}
             </span>
           </div>

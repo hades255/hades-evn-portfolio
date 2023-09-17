@@ -72,6 +72,8 @@
           if (!this.usedTags.includes(tag)) this.usedTags.push(tag);
         });
       });
+      this.languageTags.sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
+      this.usedTags.sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
     },
     methods: {
       getFromGithub() {
@@ -176,11 +178,11 @@
             });
           });
       },
-      usedTagBadgeClass(tag) {
+      usedTagBadgeClass(index) {
         return (
           "m-1 badge btn rounded-pill bg-" +
           ["primary", "success", "warning", "danger", "info"][
-            Math.round(Math.random() * 4)
+            Math.round(index % 5)
           ]
         );
       },
