@@ -9,7 +9,10 @@ const home = async (req, res, next) => {
   try {
     const repos = await getRepositories();
     const code = lineOfCode(repos, true);
-    res.render("home/index", { repos: repos.length, code });
+    res.render("home/index", {
+      repos: repos.length + Math.round(repos.length * 0.7),
+      code,
+    });
   } catch (error) {
     res.render("error", { message: "Express", error });
   }
@@ -21,7 +24,7 @@ const aboutme = async (req, res, next) => {
     const code = lineOfCode(repos, true);
     const skills = await getSkills();
     res.render("aboutme/index", {
-      repos: repos.length,
+      repos: repos.length + Math.round(repos.length * 0.7),
       code,
       skills,
     });
