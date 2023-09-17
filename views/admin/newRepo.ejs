@@ -125,7 +125,6 @@
                   type="text"
                   aria-label="First name"
                   class="form-control"
-                  name="name"
                   readonly
                   :value="lang.name"
                 />
@@ -133,7 +132,6 @@
                   type="text"
                   aria-label="Last name"
                   class="form-control"
-                  name="rate"
                   readonly
                   :value="lang.rate"
                 />
@@ -149,15 +147,17 @@
                   type="text"
                   aria-label="First name"
                   class="form-control border-info"
-                  name="name"
                   placeholder="Name"
                   v-model="lan.name"
+                  list="languages-input"
                 />
+                <datalist id="languages-input">
+                  <option v-for="lan in languageTags" :value="lan"></option>
+                </datalist>
                 <input
                   type="text"
                   aria-label="Last name"
                   class="form-control border-info"
-                  name="rate"
                   placeholder="Rate"
                   v-model="lan.rate"
                 />
@@ -182,6 +182,11 @@
                 </button>
               </div>
             </div>
+          </div>
+          <div class="d-flex flex-wrap">
+            <span v-for="tag in usedTags" :class="usedTagBadgeClass(tag)" @click="handleUsedTagClick(tag)">
+              {{ tag }}
+            </span>
           </div>
         </div>
       </div>

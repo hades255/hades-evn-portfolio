@@ -58,13 +58,24 @@
           tag: [],
         },
         file: "",
+        languageTags: [],
+        usedTags: [],
       };
     },
     created() {
-      // this.getFromGithub();
+      this.repos.forEach((repo) => {
+        repo.languages.forEach((lan) => {
+          if (!this.languageTags.includes(lan.name))
+            this.languageTags.push(lan.name);
+        });
+        repo.tag.forEach((tag) => {
+          if (!this.usedTags.includes(tag)) this.usedTags.push(tag);
+        });
+      });
     },
     methods: {
       getFromGithub() {
+        // not working
         fetch(
           "https://github.com/hades255?tab=repositories&q=&type=public&language=&sort=",
           {
@@ -165,6 +176,18 @@
             });
           });
       },
+      usedTagBadgeClass(tag) {
+        return (
+          "m-1 badge btn rounded-pill bg-" +
+          ["primary", "success", "warning", "danger", "info"][
+            Math.round(Math.random() * 4)
+          ]
+        );
+      },
+      handleUsedTagClick(tag) {
+        $("#tagsinput").tagsinput("add", tag);
+      },
     },
+    computed: {},
   });
 </script>
