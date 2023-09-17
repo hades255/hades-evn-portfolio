@@ -37,15 +37,25 @@ const portfolio = async (req, res, next) => {
   try {
     let initRepos = await getRepositories();
     const code = lineOfCode(initRepos);
+    let tags = [];
+    const initTags = ["PHP", "Node", "Laravel", "design"];
     const repos = initRepos.map((repo) => ({
       ...repo,
       code: numWithSuf(repo.code),
     }));
-
+    initRepos.forEach((repo) => {
+      repo.tag.forEach((tag) => {
+        if (tags.includes(tag) || initTags.includes(tag)) return;
+        tags.push(tag);
+      });
+    });
+    tags.sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
     res.render("portfolio/index", {
       repos,
       code,
       initRepos,
+      initTags,
+      tags,
     });
   } catch (error) {
     res.render("error", { message: "Express", error });
