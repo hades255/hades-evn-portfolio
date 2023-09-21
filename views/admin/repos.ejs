@@ -1,6 +1,7 @@
-<div class="container" id="repositories">
+<div class="container mt-5" id="repositories">
+  <div id="liveAlertPlaceholder" class="p-1 m-1 d-flex flex-wrap"></div>
+  <br />
   <%- include("newRepo") %>
-  <span class="d-none" id="init-repos"><%= JSON.stringify(repos) %></span>
   <div class="p-1 m-1 mt-3 overflow-8 border shadow rounded">
     <table class="table">
       <thead>
@@ -46,7 +47,10 @@
     el: "#repositories",
     data() {
       return {
+        username: "hades255",
+        token: "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",
         repos: JSON.parse($("#init-repos").text()),
+        non_repos: [],
         lan: { name: "", rate: 0 },
         repo: {
           title: "",
@@ -65,6 +69,7 @@
       };
     },
     created() {
+      //********************************* start make tags from repos
       this.repos.forEach((repo) => {
         repo.languages.forEach((lan) => {
           if (!this.languageTags.includes(lan.name))
@@ -76,29 +81,135 @@
       });
       this.languageTags.sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
       this.usedTags.sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
+      //******************************** end
+
+      //******************************* start github alert
+      const username = this.username;
+      const token = this.token;
+      const appendAlert = this.appendAlert;
+      const checkGithubRepoIsExist = this.checkGithubRepoIsExist;
+      const addReposToNonRepos = this.addReposToNonRepos;
+      (async function () {
+        try {
+          const response = await fetch(
+            `https://api.github.com/users/${username}/repos`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          let repositories = await response.json();
+          const timeout = () => {
+            const repo = repositories.pop();
+            if (typeof repo === "undefined") return;
+            if (checkGithubRepoIsExist(repo.html_url)) {
+              timeout();
+            } else {
+              addReposToNonRepos(repo);
+              appendAlert(
+                `<a href="${repo.html_url}" target="_blank" class="ms-3 me-3 p-3">${repo.name}</a>`,
+                "success"
+              );
+              setTimeout(() => {
+                timeout();
+              }, 5);
+            }
+          };
+          timeout();
+        } catch (error) {
+          appendAlert({ msg: "Github Connection Failed!" }, "Error");
+        }
+      })();
+      //****************************************  end
     },
     methods: {
-      getFromGithub() {
-        // not working
-        fetch(
-          "https://github.com/hades255?tab=repositories&q=&type=public&language=&sort=",
-          {
-            method: "GET",
-            mode: "no-cors",
+      setRepoFromObject({
+        title,
+        type,
+        github,
+        img,
+        imglink,
+        languages,
+        code,
+        tag,
+      }) {
+        tag.forEach((item) => {
+          $("#tagsinput").tagsinput("add", item);
+        });
+        this.repo = { title, type, github, img, imglink, languages, code, tag };
+      },
+      handleChangeGithubSelector({ target: { value } }) {
+        if (value === "") return;
+        const repo = this.non_repos.filter((repo) => repo.github === value)[0];
+        const token = this.token;
+        const setRepoFromObject = this.setRepoFromObject;
+        (async function () {
+          const response = await fetch(repo.languages_url, {
             headers: {
-              "Sec-Fetch-Mode": "cors",
-              "Sec-Fetch-Site": "same-origin",
-              "X-Requested-With": "XMLHttpRequest",
+              Authorization: `Bearer ${token}`,
             },
-          }
-        )
-          .then((res) => res.json())
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log(err);
           });
+          const languages = await response.json();
+          let arrLangs = [];
+          for (let key in languages) {
+            arrLangs.push({ name: key, value: languages[key] });
+          }
+          const code = arrLangs.reduce((sum, { value }) => sum + value, 0);
+          setRepoFromObject({
+            ...repo,
+            code,
+            languages: arrLangs.map((lang) => ({
+              ...lang,
+              rate: (Math.round((lang.value / code) * 1000) / 10).toFixed(1),
+            })),
+          });
+        })();
+      },
+      addReposToNonRepos({
+        name,
+        visibility,
+        html_url,
+        languages_url,
+        language,
+        topics,
+      }) {
+        this.non_repos.push({
+          title: name,
+          type: visibility,
+          github: html_url,
+          img: "",
+          imglink: "",
+          languages: [],
+          code: 0,
+          tag: [language, ...topics],
+          languages_url,
+        });
+      },
+      checkGithubRepoIsExist(url) {
+        if (url) {
+          for (let repo of this.repos) {
+            if (repo.github === url) {
+              return true;
+            }
+          }
+        }
+        return false;
+      },
+      appendAlert(message, type) {
+        const alertPlaceholder = document.getElementById(
+          "liveAlertPlaceholder"
+        );
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = [
+          `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+          `   <div>${message}</div>`,
+          '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+          "</div>",
+        ].join("");
+
+        alertPlaceholder.append(wrapper);
+        return true;
       },
       handleAddLang() {
         if (!this.lan.name || !this.lan.rate) return;

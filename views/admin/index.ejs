@@ -132,10 +132,12 @@
       </header>
     </div>
 
+    <span class="d-none" id="init-repos"><%= JSON.stringify(repos) %></span>
+
     <%- include("repos") %>
 
-    <br/>
-    
+    <br />
+
     <%- include("database") %>
 
     <div class="container border"></div>

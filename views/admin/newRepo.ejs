@@ -1,4 +1,4 @@
-<div class="container mt-5 pt-5">
+<div class="container">
   <div class="d-flex justify-content-between">
     <span class="text-primary fw-bold" style="font-size: 30px">
       Repositories
@@ -14,7 +14,7 @@
 </div>
 
 <div
-  class="modal fade"
+  class="modal fade show"
   id="add-new-repo"
   data-bs-backdrop="static"
   data-bs-keyboard="false"
@@ -53,13 +53,18 @@
               />
             </div>
             <div class="form-outline mb-4">
-              <input
+              <select
                 type="text"
                 class="form-control border"
                 name="github"
                 placeholder="Github"
-                v-model="repo.github"
-              />
+                @change="handleChangeGithubSelector"
+              >
+                <option value=""></option>
+                <option v-for="repo of non_repos" :value="repo.github">
+                  {{ repo.github }}
+                </option>
+              </select>
             </div>
             <div class="form-outline mb-4">
               <input
@@ -184,7 +189,11 @@
             </div>
           </div>
           <div class="d-flex flex-wrap">
-            <span v-for="(tag, index) in usedTags" :class="usedTagBadgeClass(index)" @click="handleUsedTagClick(tag)">
+            <span
+              v-for="(tag, index) in usedTags"
+              :class="usedTagBadgeClass(index)"
+              @click="handleUsedTagClick(tag)"
+            >
               {{ tag }}
             </span>
           </div>
