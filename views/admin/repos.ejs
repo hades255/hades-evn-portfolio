@@ -53,10 +53,12 @@
           type: "personal",
           github: "",
           img: "",
+          imglink: "",
           languages: [],
           code: 0,
           tag: [],
         },
+        usefile: "0",
         file: "",
         languageTags: [],
         usedTags: [],
@@ -111,6 +113,15 @@
       },
       handleSubmit() {
         event.preventDefault();
+        if (
+          this.usefile === "0" ||
+          (this.usefile === "1" && !this.repo.img) ||
+          (this.usefile === "2" && !this.repo.imglink)
+        ) {
+          window.alert("Please fill image field.");
+          return;
+        }
+        if (this.usefile === "1") this.repo.imglink = null;
         this.repo.tag = $("#tagsinput").val();
         fetch("/api/repos", {
           method: "POST",
@@ -190,6 +201,11 @@
       },
       handleUsedTagClick(tag) {
         $("#tagsinput").tagsinput("add", tag);
+      },
+      showNewImage() {
+        return (
+          this.repo.imglink || `/img/repos/${this.repo.img || "gallery-2x.png"}`
+        );
       },
     },
     computed: {},
