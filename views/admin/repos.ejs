@@ -152,6 +152,8 @@
       },
       handleRemoveRepo(id) {
         if (!window.confirm("Confirm Delete?")) return;
+        const prompt = window.prompt("Please input admin password", "ADMIN");
+        if (prompt !== "my password 0423.") return;
         fetch("/api/repos", {
           method: "DELETE",
           headers: {

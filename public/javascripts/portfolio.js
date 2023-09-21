@@ -86,8 +86,6 @@ $(document).ready(function () {
       ],
     };
 
-    console.log(options);
-
     $("#chartContainer").CanvasJSChart(options);
   }
 
@@ -135,4 +133,16 @@ $(document).ready(function () {
       drawChart();
     }
   }, 100);
+
+  // const resizeObserver = new ResizeObserver(entries => {
+  //   for (let entry of entries) {
+  //     $grid.masonry({
+  //       itemSelector: ".grid-item",
+  //       columnWidth: 200,
+  //     });
+  //     $grid.shuffle({ itemSelector: ".portfolio-item" });
+  //   }
+  // });
+
+  // resizeObserver.observe($grid[0]);
 });

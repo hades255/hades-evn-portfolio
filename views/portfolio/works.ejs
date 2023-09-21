@@ -1,4 +1,4 @@
-<section id="works" class="works-section">
+<section id="works" class="works-section pb-5">
   <div class="container pt-5">
     <h1 class="section-title wow fadeInUp block-heading text-black">Works</h1>
     <ul class="list-inline d-flex justify-content-center" id="filter">
@@ -23,7 +23,7 @@
         </select>
       </div>
     </ul>
-    <div class="row">
+    <div class="portfolio-section ps-3 pe-3">
       <div id="grid">
         <% repos.forEach((repo, index)=>{ %>
         <div
@@ -34,14 +34,14 @@
             <div class="portfolio">
               <div class="tt-overlay"></div>
               <div class="links">
-                <a class="image-link" href="img/repos/<%= repo.img %>">
+                <a class="image-link" href="<%= repo.imglink?repo.imglink:`img/repos/${repo.img}` %>">
                   <i class="fa fa-search-plus"></i>
                 </a>
                 <a href="<%= repo.github %>" target="_blank">
                   <i class="fa fa-link"></i>
                 </a>
               </div>
-              <img src="img/repos/<%= repo.img %>" alt="image" width="100%" />
+              <img src="<%= repo.imglink || `img/repos/${repo.img}` %>" alt="image" width="100%" class="portfolio-img" />
             </div>
             <div class="portfolio-detail">
               <div class="btn-group btn-group-sm">
