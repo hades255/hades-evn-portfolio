@@ -24,8 +24,7 @@
   z-index: 2;
 }
 #scroll-Top .return-to-top:hover {
-  background: #fff;
-  color: #b636ff;
+  background: transparent;
   border: 1px solid #b636ff;
 }
 
