@@ -72,6 +72,30 @@ const lineOfCode = (repos, style = false) => {
   return style ? numWithSuf(code) : code;
 };
 
+const getSetting = async () => {
+  try {
+    await accessDB("./db/setting.json");
+    const data = await readDB("./db/setting.json");
+    return JSON.parse(data);
+  } catch (error) {
+    return false;
+  }
+};
+
+const setSetting = async (newData) => {
+  try {
+    await accessDB("./db/setting.json");
+    const data = await readDB("./db/setting.json");
+    await writeDB(
+      "./db/setting.json",
+      JSON.stringify({ ...JSON.parse(data), ...newData })
+    );
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 module.exports = {
   getRepositories,
   lineOfCode,
@@ -80,4 +104,6 @@ module.exports = {
   setSkills,
   getDB,
   setDB,
+  getSetting,
+  setSetting,
 };

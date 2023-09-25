@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { getDB, setDB } = require("../helpers/db");
+const { getDB, setDB, getSetting, setSetting } = require("../helpers/db");
 
 const getFromDB = async (req, res, next) => {
   try {
@@ -47,4 +47,14 @@ const downloadDB = async (req, res, next) => {
   });
 };
 
-module.exports = { getFromDB, setToDB, downloadDB };
+const setToSetting = async (req, res, next) => {
+  try {
+    const setting = await getSetting();
+    const data = await setSetting({ ...setting, ...req.body });
+    res.json({ msg: data });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getFromDB, setToDB, downloadDB, setToSetting };

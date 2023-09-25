@@ -1,11 +1,12 @@
-const { getSkills } = require("../helpers/db");
+const { getSkills, getSetting } = require("../helpers/db");
 const Repo = require("../models/Repo");
 
 const home = async (req, res, next) => {
   try {
     const repos = await Repo.all();
     const skills = await getSkills();
-    res.render("admin/index", { repos, skills });
+    const setting = await getSetting();
+    res.render("admin/index", { repos, skills, token: setting.githubToken });
   } catch (error) {
     next(error);
   }

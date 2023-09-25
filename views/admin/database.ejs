@@ -2,16 +2,24 @@
   <button
     class="btn btn-primary"
     data-bs-toggle="modal"
-    data-bs-target="#edit-db-with-json"
+    data-bs-target="#edit-db-with-json-model"
     onclick="refreshRepoTextarea()"
   >
     <i class="fa fa-asterisk" aria-hidden="true"></i> Edit with JSON
+  </button>
+  <button
+    class="btn btn-warning text-white"
+    data-bs-toggle="modal"
+    data-bs-target="#github-token-model"
+    onclick="initGithubToken()"
+  >
+    <i class="fa fa-github" aria-hidden="true"></i> Github Token
   </button>
 </div>
 
 <div
   class="modal fade"
-  id="edit-db-with-json"
+  id="edit-db-with-json-model"
   data-bs-backdrop="static"
   data-bs-keyboard="false"
   tabindex="-1"
@@ -43,6 +51,45 @@
       <div class="modal-body">
         <div class="form-group">
           <div id="jsoneditor" class="overflow-8"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="github-token-model"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="edit-github-token-input"
+          />
+        </div>
+        <div class="mt-2 d-flex justify-content-between">
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <i class="fa fa-remove" aria-hidden="true"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-sm"
+            onclick="updateGithubToken()"
+          >
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -106,6 +153,40 @@
       .then((res) => res.json())
       .then((res) => {
         window.open(res.url, "_blank");
+      })
+      .catch((err) => {
+        $.toast({
+          heading: "Failure",
+          text: "Something went wrong! Please try later.",
+          showHideTransition: "slide",
+          icon: "error",
+        });
+      });
+  }
+
+  function initGithubToken() {
+    document.getElementById("edit-github-token-input").value =
+      document.getElementById("bearer-token").innerText;
+  } //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
+  function updateGithubToken() {
+    document.getElementById("edit-github-token-input").value;
+    fetch("/api/setting/github-token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        githubToken: document.getElementById("edit-github-token-input").value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        $.toast({
+          heading: "Success",
+          text: "Your request is successfuly sended.",
+          showHideTransition: "slide",
+          icon: "success",
+        });
       })
       .catch((err) => {
         $.toast({
