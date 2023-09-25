@@ -22,14 +22,20 @@ $(document).ready(function () {
     const code = lineOfCode(
       initRepos.filter(
         (repo) =>
-          filter === undefined || filter === "all" || repo.tag.includes(filter)
+          filter === undefined ||
+          filter === "all" ||
+          filter === "home" ||
+          repo.tag.includes(filter)
       )
     );
     let languages = {};
     initRepos
       .filter(
         (repo) =>
-          filter === undefined || filter === "all" || repo.tag.includes(filter)
+          filter === undefined ||
+          filter === "all" ||
+          filter === "home" ||
+          repo.tag.includes(filter)
       )
       .forEach((repo) => {
         repo.languages.forEach((lan) => {
@@ -91,7 +97,7 @@ $(document).ready(function () {
 
   function shuffle(name) {
     $grid.shuffle("shuffle", name);
-    drawChart(name);
+    drawChart(name === "home" ? "all" : name);
   }
 
   $grid.imagesLoaded(function () {
@@ -130,7 +136,8 @@ $(document).ready(function () {
       $("#filter a").removeClass("active");
       shuffle(location.href.substring(location.href.lastIndexOf("=") + 1));
     } else {
-      drawChart();
+      shuffle("home");
+      // drawChart();
     }
   }, 100);
 

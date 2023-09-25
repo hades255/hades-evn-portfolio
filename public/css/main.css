@@ -416,7 +416,10 @@ body {
   background: linear-gradient(
       to bottom,
       rgba(247, 247, 247, 1),
-      rgba(0, 0, 0, 0) 70%
+      rgba(0, 0, 0, 0.1) 70%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0.1) 70%,
+      rgba(255, 255, 255, 1)
     ),
     url(../img/bg/number1.gif) repeat center center fixed;
 }

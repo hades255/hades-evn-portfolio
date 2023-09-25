@@ -3,7 +3,10 @@
     <h1 class="section-title wow fadeInUp block-heading text-black">Works</h1>
     <ul class="list-inline d-flex justify-content-center" id="filter">
       <li class="m-1">
-        <a class="active text-decoration-none" data-group="all">All</a>
+        <a class="active text-decoration-none" data-group="home">Home</a>
+      </li>
+      <li class="m-1">
+        <a class="text-decoration-none" data-group="all">All</a>
       </li>
       <% initTags.forEach(tag=>{ %>
       <li class="m-1">
@@ -28,7 +31,7 @@
         <% repos.forEach((repo, index)=>{ %>
         <div
           class="portfolio-item grid-item col-lg-3 col-md-3 col-sm-6"
-          data-groups="<%= JSON.stringify(['all', ...repo.tag]) %>"
+          data-groups="<%= JSON.stringify(['all', ...repo.tag, repo.home?'home':'']) %>"
         >
           <div class="portfolio-bg shadow rounded">
             <div class="portfolio">

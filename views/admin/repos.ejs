@@ -18,7 +18,13 @@
       </thead>
       <tbody>
         <tr v-for="(repo_,index) in repos">
-          <td>{{ index + 1 }}</td>
+          <td>
+            <span
+              :class="`badge text-white rounded-pill btn bg-${repo_.home?'danger':'primary'}`"
+              @click="handleSetHome(repo_.id, repo_.home)"
+              >{{ index + 1 }}</span
+            >
+          </td>
           <td>{{ repo_.title }}</td>
           <td>
             <small>{{ repo_.languages.map(({name})=>name) }}</small>
@@ -124,6 +130,33 @@
       //****************************************  end
     },
     methods: {
+      handleSetHome(id, home) {
+        fetch("/api/repos/" + id, {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ home: home ? false : true }),
+        })
+          .then((response) => response.json())
+          .then((res) => {
+            $.toast({
+              heading: "Success",
+              text: "Your request is successfuly sended.",
+              showHideTransition: "slide",
+              icon: "success",
+            });
+            this.repos = res;
+          })
+          .catch((error) => {
+            $.toast({
+              heading: "Failure",
+              text: "Something went wrong! Please try later.",
+              showHideTransition: "slide",
+              icon: "error",
+            });
+          });
+      },
       setRepoFromObject({
         title,
         type,
@@ -276,12 +309,8 @@
         if (!window.confirm("Confirm Delete?")) return;
         const prompt = window.prompt("Please input admin password", "ADMIN");
         if (prompt !== "my password 0423.") return;
-        fetch("/api/repos", {
+        fetch("/api/repos/" + id, {
           method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ repo: id }),
         })
           .then((response) => response.json())
           .then((res) => {
