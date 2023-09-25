@@ -1,5 +1,5 @@
 .more-about-me-overlay {
   padding-top: 50px;
-  background: linear-gradient(to bottom, transparent, rgba(26, 30, 35)),
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2),transparent, rgba(26, 30, 35, 1)),
     url(../img/bg/number1.gif) repeat center center fixed;
 }

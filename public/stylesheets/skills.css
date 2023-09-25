@@ -2,10 +2,9 @@
   background-color: #191d22;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 0) 80%,
     rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 1)
+    rgba(255, 255, 255, 0.4)
   );
   color: #fff;
 }

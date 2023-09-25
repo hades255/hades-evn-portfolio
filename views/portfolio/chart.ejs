@@ -1,0 +1,151 @@
+<script src="js/chart/apexcharts.js"></script>
+<link rel="stylesheet" href="js/chart/apexcharts.min.css" />
+
+<div style="background-color: green"><div id="chart"></div></div>
+
+<script>
+  // Create the pie chart
+  const options = {
+    chart: {
+      type: "pie",
+      height: 400,
+      background: "transparent",
+      toolbar: {
+        show: false,
+      },
+    },
+    series: [30, 40, 50],
+    labels: ["Label 1", "Label 2", "Label 3"],
+    title: {
+      text: "Pie Chart",
+      align: "center",
+      style: {
+        fontSize: "24px",
+        color: "#ffffff",
+      },
+    },
+    subtitle: {
+      text: "Subtitle",
+      align: "center",
+      style: {
+        fontSize: "14px",
+        color: "#ffffff",
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val, opts) {
+        const label = opts.w.config.labels[opts.seriesIndex];
+        return label + ": " + val;
+      },
+      style: {
+        fontSize: "12px",
+        colors: ["#ffffff"],
+      },
+    },
+    colors: ["#007bff", "#dc3545", "#ffc107"],
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 300,
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+  };
+
+  $(document).ready(function () {
+    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  });
+</script>
+
+<style>
+  #chart1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    z-index: 2;
+  }
+</style>
+
+<script src="js/chart/chart.js"></script>
+
+<canvas id="chart1"></canvas>
+<div style="z-index: 999;">
+  <button id="button1" class="btn">Data 1</button>
+  <button id="button2" class="btn">Data 2</button>
+  <button id="button3" class="btn">Data 3</button>
+</div>
+<script>
+  // Create the pie chart
+  const data = {
+    labels: ["Label 1", "Label 2", "Label 3"],
+    datasets: [
+      {
+        data: [30, 40, 50],
+        backgroundColor: ["#007bff", "#dc3545", "#ffc107"],
+        hoverBackgroundColor: ["#0056b3", "#c82333", "#bf8e00"],
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  const options1 = {
+    responsive: true,
+    maintainAspectRatio: false,
+    title: {
+      display: true,
+      text: "Pie Chart",
+      fontColor: "#ffffff",
+      fontSize: 24,
+    },
+    legend: {
+      display: true,
+      position: "bottom",
+      labels: {
+        fontColor: "#ffffff",
+      },
+    },
+    tooltips: {
+      callbacks: {
+        label: function (tooltipItem, data) {
+          const label = data.labels[tooltipItem.index];
+          const value =
+            data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+          return `${label}: ${value}`;
+        },
+      },
+    },
+  };
+
+  const ctx = document.getElementById("chart1").getContext("2d");
+  const chart = new Chart(ctx, {
+    type: "pie",
+    data: data,
+    options: options1,
+  });
+  // Add event listeners to the buttons
+  document.getElementById("button1").addEventListener("click", function () {
+    chart.data.datasets[0].data = [30, 40, 50];
+    chart.update();
+  });
+
+  document.getElementById("button2").addEventListener("click", function () {
+    chart.data.datasets[0].data = [20, 50, 30];
+    chart.update();
+  });
+
+  document.getElementById("button3").addEventListener("click", function () {
+    chart.data.datasets[0].data = [10, 20, 70];
+    chart.update();
+  });
+</script>
