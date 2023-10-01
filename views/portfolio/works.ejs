@@ -36,13 +36,18 @@
           <div class="portfolio-bg shadow rounded">
             <div class="portfolio">
               <div class="tt-overlay"></div>
-              <div class="links">
+              <div class="<%= repo.homepage?'links':'links links-2' %>">
                 <a class="image-link" href="<%= repo.imglink?repo.imglink:`img/repos/${repo.img}` %>">
                   <i class="fa fa-search-plus"></i>
                 </a>
                 <a href="<%= repo.github %>" target="_blank">
                   <i class="fa fa-link"></i>
                 </a>
+                <% if(repo.homepage) { %>
+                <a href="<%= repo.homepage %>" target="_blank">
+                  <i class="fa fa-external-link"></i>
+                </a>
+                <% } %>
               </div>
               <img src="<%= repo.imglink || `img/repos/${repo.img}` %>" alt="image" width="100%" class="portfolio-img" />
             </div>

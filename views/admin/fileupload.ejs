@@ -1,25 +1,23 @@
-<div class="bg-white border rounded-5">
-  <section class="p-4 d-flex justify-content-center w-100">
-    <div class="w-100">
-      <select v-model="usefile" class="form-control mb-3">
-        <option value="0">SELECT IMAGE</option>
-        <option value="1">Image Upload</option>
-        <option value="2">Use Link</option>
-      </select>
-      <input
-        v-if="usefile==='1'"
-        type="file"
-        class="form-control"
-        @change="handleFileChange"
-      />
-      <input
-        v-if="usefile==='2'"
-        type="search"
-        class="form-control"
-        placeholder="Type or Paste Link"
-        v-model="repo.imglink"
-      />
-      <img alt="image" :src="showNewImage()" class="mt-3 img-thumbnail" />
-    </div>
-  </section>
+<div class="bg-white border rounded-5 p-4 d-flex justify-content-center w-100">
+  <div class="w-100">
+    <select v-model="usefile" class="form-control mb-3">
+      <option value="0">SELECT IMAGE</option>
+      <option value="1">Image Upload</option>
+      <option value="2">Use Link</option>
+    </select>
+    <input
+      v-if="usefile==='1'"
+      type="file"
+      class="form-control"
+      @change="handleFileChange"
+    />
+    <input
+      v-if="usefile==='2'"
+      type="search"
+      class="form-control"
+      placeholder="Type or Paste Link"
+      v-model="repo.imglink"
+    />
+    <img alt="image" :src="showNewImage()" class="mt-3 img-thumbnail" height="300px" />
+  </div>
 </div>

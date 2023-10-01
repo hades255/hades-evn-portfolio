@@ -105,6 +105,25 @@
                 </button>
               </div>
               <%- include("fileupload") %>
+              <div class="form-group">
+                <label for="description-textarea">Description</label>
+                <textarea
+                  v-model="repo.description"
+                  id="description-textarea"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="homepage-textarea">Deployments</label>
+                <input
+                  type="text"
+                  v-model="repo.homepage"
+                  id="homepage-textarea"
+                  class="form-control"
+                  rows="3"
+                />
+              </div>
             </div>
             <div class="col-md-6 col-sm-12 col-12 ps-2 pe-2">
               <div class="d-none d-md-block d-md-flex justify-content-end">

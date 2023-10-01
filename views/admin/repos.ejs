@@ -67,6 +67,8 @@
           languages: [],
           code: 0,
           tag: [],
+          description: "",
+          homepage: "",
         },
         usefile: "0",
         file: "",
@@ -120,7 +122,7 @@
                 );
                 setTimeout(() => {
                   timeout();
-                }, 5);
+                }, 100);
               }
             };
             timeout();
@@ -161,20 +163,12 @@
             });
           });
       },
-      setRepoFromObject({
-        title,
-        type,
-        github,
-        img,
-        imglink,
-        languages,
-        code,
-        tag,
-      }) {
-        tag.forEach((item) => {
+      setRepoFromObject({ languages_url, ...repo }) {
+        $("#tagsinput").tagsinput("removeAll");
+        repo.tag.forEach((item) => {
           $("#tagsinput").tagsinput("add", item);
         });
-        this.repo = { title, type, github, img, imglink, languages, code, tag };
+        this.repo = { ...repo };
       },
       handleChangeGithubSelector({ target: { value } }) {
         if (value === "") return;
@@ -210,6 +204,8 @@
         languages_url,
         language,
         topics,
+        description,
+        homepage,
       }) {
         this.non_repos.push({
           title: name,
@@ -221,6 +217,8 @@
           code: 0,
           tag: [language, ...topics],
           languages_url,
+          description,
+          homepage,
         });
       },
       checkGithubRepoIsExist(url) {
