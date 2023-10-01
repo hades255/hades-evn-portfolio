@@ -19,7 +19,7 @@
                 "rate": 52
             },
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 27.8
             }
         ],
@@ -141,7 +141,7 @@
                 "rate": 44.4
             },
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 43.6
             },
             {
@@ -178,7 +178,7 @@
                 "rate": 74.8
             },
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 13.2
             },
             {
@@ -216,7 +216,7 @@
         "imglink": "https://raw.githubusercontent.com/hades255/hades-mern-eshop/develop/docs/images/product-shop.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 93.4
             },
             {
@@ -277,7 +277,7 @@
         "imglink": "https://raw.githubusercontent.com/hades255/hades-mern-crud/master/ss/react.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 90.3
             },
             {
@@ -338,7 +338,7 @@
         "imglink": "https://raw.githubusercontent.com/hades255/hades-mern-ecommerce/master/client/public/images/banners/banner-1.jpg",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 86.6
             },
             {
@@ -370,7 +370,7 @@
         "imglink": "https://camo.githubusercontent.com/4ba0dabdf8d791b9a2111dcafb6255868ccc7c2ca6212be31915371ae580b9dd/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d65726e626f6f6b2f6769742b2f6d61726b6574706c6163652e706e67",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 100
             }
         ],
@@ -402,7 +402,7 @@
                 "rate": 5.9
             },
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": 1.9
             }
         ],
@@ -423,7 +423,7 @@
         "imglink": "https://raw.githubusercontent.com/iondrimba/images/master/perrin.gif",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "79.7"
             },
             {
@@ -437,7 +437,7 @@
         ],
         "code": "37900",
         "tag": [
-            "JS",
+            "JavaScript",
             "design",
             "Three.js"
         ],
@@ -465,14 +465,14 @@
                 "rate": "26.8"
             },
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "8.6"
             }
         ],
         "code": "2800",
         "tag": [
             "HTML",
-            "JS",
+            "JavaScript",
             "design"
         ],
         "home": true
@@ -487,7 +487,7 @@
         "imglink": "https://raw.githubusercontent.com/hades255/hades-3dExamples-threejs/master/src/assets/images/cover.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "94.4"
             },
             {
@@ -503,7 +503,7 @@
         "tag": [
             "HTML",
             "Three.js",
-            "JS",
+            "JavaScript",
             "design"
         ]
     },
@@ -517,7 +517,7 @@
         "imglink": "https://raw.githubusercontent.com/hades255/hades-art-of-education-mern/main/public/images/learning_desk.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "87.1"
             },
             {
@@ -549,7 +549,7 @@
         "imglink": "https://user-images.githubusercontent.com/57604500/121790708-525ff580-cbe2-11eb-8a13-d6fd09d680ee.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "44.8"
             },
             {
@@ -584,7 +584,7 @@
                 "rate": "69.3"
             },
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "30.1"
             }
         ],
@@ -607,7 +607,7 @@
         "imglink": "https://user-images.githubusercontent.com/44440927/152126492-f7e5aff7-3342-4828-b526-e2a7ec133aea.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "76.2"
             },
             {
@@ -643,7 +643,7 @@
         "imglink": "https://raw.githubusercontent.com/hades255/hades-book-store-mern/main/assets/mern_book_search_1_screenshot.png",
         "languages": [
             {
-                "name": "JS",
+                "name": "JavaScript",
                 "rate": "94.4"
             },
             {
@@ -697,7 +697,7 @@
         "code": 652265,
         "tag": [
             "HTML",
-            "JS",
+            "JavaScript",
             "Social",
             "design",
             "Three.js"
